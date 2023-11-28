@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "lib": ["es2019", "esnext"],
+    "removeComments": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "allowUnreachableCode": true,
+    "outDir": "lib",
+    "baseUrl": ".",
+    "declaration": true,
+    "target": "es5",
+    "module": "commonjs",
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": [
+    "node_modules/**/*",
+    ".serverless/**/*",
+    ".webpack/**/*",
+    "_warmup/**/*",
+    ".vscode/**/*",
+    "**/*.test.ts"
+  ]
+}

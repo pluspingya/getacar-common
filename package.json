@@ -2,10 +2,27 @@
   "name": "getacar-interface",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "postinstall": "yarn build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pluspingya/getacar-interface.git"
   },
   "author": "Plus Pingya <pluspingya@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pluspingya/getacar-interface/issues"
+  },
+  "homepage": "https://github.com/pluspingya/getacar-interface#readme",
+  "devDependencies": {
+    "typescript": "^4.5.4"
+  }
 }
