@@ -1,5 +1,5 @@
 {
-  "name": "getacar-interface",
+  "name": "getacar-common",
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pluspingya/getacar-interface.git"
+    "url": "git+https://github.com/pluspingya/getacar-common.git"
   },
   "author": "Plus Pingya <pluspingya@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pluspingya/getacar-interface/issues"
+    "url": "https://github.com/pluspingya/getacar-common/issues"
   },
-  "homepage": "https://github.com/pluspingya/getacar-interface#readme",
+  "homepage": "https://github.com/pluspingya/getacar-common#readme",
   "devDependencies": {
     "typescript": "^4.5.4"
   }
