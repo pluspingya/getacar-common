@@ -7,6 +7,10 @@
   "files": [
     "lib/**/*"
   ],
+  "exports": {
+    "./interface": "./lib/interface/index.js",
+    "./ddd": "./lib/ddd/index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
