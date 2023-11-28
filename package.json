@@ -24,5 +24,8 @@
   "homepage": "https://github.com/pluspingya/getacar-common#readme",
   "devDependencies": {
     "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2"
   }
 }
