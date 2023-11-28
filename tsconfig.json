@@ -13,7 +13,10 @@
     "declaration": true,
     "target": "es5",
     "module": "commonjs",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "getacar-common/ddd": ["./src/ddd"]
+    }
   },
   "include": ["src/**/*.ts"],
   "exclude": [
