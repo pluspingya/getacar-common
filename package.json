@@ -3,6 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": "./lib/index.js",
+    "./interface": "./lib/interface/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "interface":["./lib/interface/index.d.ts"]
+    }
+  },
   "module": "lib/index.js",
   "files": [
     "lib/**/*"
