@@ -1,12 +1,17 @@
+export enum CarTransmission {
+  MANUAL = 'MANUAL',
+  AUTOMATIC = 'AUTOMATIC',
+}
+
 export default interface CarDTO {
   id: string;
   plateNumber: string;
   note?: string;
   make: string;
   model: string;
-  submodel: string;
+  submodel?: string;
   year: number;
-  transmission: string;
+  transmission: CarTransmission;
   color: string;
   fuel: string;
   odometer: number;
