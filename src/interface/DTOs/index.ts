@@ -1,3 +1,5 @@
+export * from './BookingDTO';
+export { default as BookingDTO } from './BookingDTO';
 export * from './CarDTO';
 export { default as CarDTO } from './CarDTO';
 export { default as MembershipDTO } from './MembershipDTO';

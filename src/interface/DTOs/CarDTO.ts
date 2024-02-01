@@ -18,6 +18,7 @@ export default interface CarDTO {
   doors: number;
   seats: number;
   rentalPrice: number;
+  hourlyPrice: number;
   vendorPrice: number;
   insuranceDeposit: number;
   bookingDeposit: number;
