@@ -1,5 +1,4 @@
-import { CarDTO } from 'getacar-common';
-import UserDTO from '../../../../getacar-backend/src/shared/DTOs/UserDTO';
+import { CarDTO, UserDTO } from 'getacar-common';
 
 export enum BookingStatus {
   PENDING = 'PENDING',
