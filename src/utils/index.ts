@@ -1,1 +1,2 @@
-export { default as transformCaseKeys, KeyCaseType } from './transformCaseKeys';
+export * from './transformCaseKeys';
+export { default as transformCaseKeys } from './transformCaseKeys';
