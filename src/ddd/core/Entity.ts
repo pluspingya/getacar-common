@@ -24,7 +24,6 @@ export default abstract class Entity<PropsType> {
     if (!isEntity(otherEntity)) {
       return false;
     }
-    
     return this._id === otherEntity._id;
   }
 }
