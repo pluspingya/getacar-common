@@ -13,7 +13,7 @@ export enum KeyCaseType {
   snakeCase = 'snakeCase',
 }
 
-const transformCaseKeys = (obj: InputRecordObjectOrArray, keyCaseType: KeyCaseType = KeyCaseType.camelCase): any => {
+export default function transformCaseKeys(obj: InputRecordObjectOrArray, keyCaseType: KeyCaseType = KeyCaseType.camelCase): any {
   let originalObj: InputRecordObjectOrArray = cloneDeep(obj);
 
   if (Array.isArray(originalObj)) {
@@ -36,4 +36,3 @@ const transformCaseKeys = (obj: InputRecordObjectOrArray, keyCaseType: KeyCaseTy
   });
 };
 
-export default transformCaseKeys;
