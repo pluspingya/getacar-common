@@ -18,3 +18,22 @@ export const buildNestedCreateInputs = <ListItemType extends HasStringId, Create
   if (!list || list.getNewItems().length === 0) return;
   return { create: list.getItems().map(inputMapper) }
 }
+
+export const buildNestedConnectInputs = <ListItemType extends HasStringId, CreateInputType, UpdateInputType>(
+  list: PartialWatchedList<ListItemType> | undefined,
+  createMapper: (item: ListItemType) => CreateInputType,
+  updateMapper: (item: ListItemType) => UpdateInputType,
+):
+  | { create?: CreateInputType[]; updateMany?: { data: UpdateInputType; where: HasStringId }[]; delete?: HasStringId[] }
+  | undefined => {
+  if (!list) return;
+  const itemsToCreate = list.getNewItems();
+  const itemsToUpdate = list.getUnchangedItems();
+  const itemsToDelete = list.getRemovedItems();
+  if (itemsToCreate.length + itemsToUpdate.length + itemsToDelete.length === 0) return;
+  return {
+    create: itemsToCreate.length ? itemsToCreate.map(createMapper) : undefined,
+    delete: itemsToDelete.length ? itemsToDelete.map((item) => ({ id: item.id })) : undefined,
+    updateMany: itemsToUpdate.length ? itemsToUpdate.map((item) => ({ data: updateMapper(item), where: { id: item.id } })) : undefined,
+  }
+};
