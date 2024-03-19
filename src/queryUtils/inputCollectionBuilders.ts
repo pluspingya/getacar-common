@@ -19,7 +19,7 @@ export const buildNestedCreateInputs = <ListItemType extends HasStringId, Create
   return { create: list.getItems().map(inputMapper) }
 }
 
-export const buildNestedConnectInputs = <ListItemType extends HasStringId, CreateInputType, UpdateInputType>(
+export const buildNestedUpdateInputs = <ListItemType extends HasStringId, CreateInputType, UpdateInputType>(
   list: PartialWatchedList<ListItemType> | undefined,
   createMapper: (item: ListItemType) => CreateInputType,
   updateMapper: (item: ListItemType) => UpdateInputType,
