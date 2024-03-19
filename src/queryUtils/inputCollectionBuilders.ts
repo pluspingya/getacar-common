@@ -4,6 +4,13 @@ type HasStringId = { id: string };
 
 type PartialWatchedList<ListItemType> = Pick<WatchedList<ListItemType>, 'getNewItems' | 'getRemovedItems' | 'getUnchangedItems' | 'getItems'>;
 
+export const buildNewConnectionInput = <ListItemType extends HasStringId>(
+  item: ListItemType | undefined,  
+): { connect: { id: string } } | undefined => {
+  if (!item) return;
+  return { connect: { id: item.id } }
+}
+
 export const buildNestedCreateInputs = <ListItemType extends HasStringId, CreateInputType>(
   list: PartialWatchedList<ListItemType> | undefined,
   inputMapper: (item: ListItemType) => CreateInputType,
