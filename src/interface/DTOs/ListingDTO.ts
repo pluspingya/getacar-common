@@ -1,4 +1,4 @@
-import { CarDTO } from 'getacar-common';
+import CarDTO from './CarDTO';
 
 export enum ListingStatus {
   ACTIVE = 'ACTIVE',
