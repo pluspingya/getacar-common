@@ -1,5 +1,5 @@
 export default class AddressDTO {
-  street1: string;
+  address1: string;
   address2?: string;
   city: string;
   district: string;
