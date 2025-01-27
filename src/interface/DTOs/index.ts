@@ -14,4 +14,4 @@ export * from './ShopDTO';
 export { default as ShopDTO } from './ShopDTO';
 export * from './ShopMembershipDTO';
 export { default as ShopMembershipDTO } from './ShopMembershipDTO';
-export * from './LocationDTO';
+export { default as LocationDTO } from './LocationDTO';

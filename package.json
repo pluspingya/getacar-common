@@ -8,12 +8,14 @@
     ".": "./lib/index.js",
     "./interface": "./lib/interface/index.js",
     "./ddd": "./lib/ddd/index.js",
+    "./domain": "./lib/domain/index.js",
     "./utils": "./lib/utils/index.js"
   },
   "typesVersions": {
     "*": {
       "interface": ["./lib/interface/index.d.ts"],
       "ddd": ["./lib/ddd/index.d.ts"],
+      "domain": ["./lib/domain/index.d.ts"],
       "utils": ["./lib/utils/index.d.ts"]
     }
   },
