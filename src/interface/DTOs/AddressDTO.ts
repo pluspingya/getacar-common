@@ -1,4 +1,4 @@
-export default class AddressDTO {
+type AddressDTO = {
   address1: string;
   address2?: string;
   city: string;
@@ -7,3 +7,5 @@ export default class AddressDTO {
   province: string;
   country: string;
 }
+
+export default AddressDTO;

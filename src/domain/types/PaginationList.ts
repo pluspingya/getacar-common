@@ -1,4 +1,4 @@
-export default interface PaginationList<T> {
+type PaginationList<T> = {
   items: T[];
   pagination: {
     next?: {
@@ -12,3 +12,5 @@ export default interface PaginationList<T> {
   };
   total: number;
 }
+
+export default PaginationList;

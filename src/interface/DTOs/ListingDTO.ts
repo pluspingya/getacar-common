@@ -1,11 +1,7 @@
+import ListingStatus from '../../domain/enums/ListingStatus';
 import CarDTO from './CarDTO';
 
-export enum ListingStatus {
-  ACTIVE = 'ACTIVE',
-  INACTIVE = 'INACTIVE',
-}
-
-export default interface ListingDTO {
+type ListingDTO = {
   id: string;
   accountId: string;
   car: CarDTO;
@@ -23,3 +19,5 @@ export default interface ListingDTO {
   createdAt: string;
   updatedAt: string;
 }
+
+export default ListingDTO;

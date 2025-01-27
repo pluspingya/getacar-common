@@ -1,16 +1,8 @@
-import { CarDTO, UserDTO } from '.';
+import BookingStatus from '../../domain/enums/BookingStatus';
+import CarDTO from './CarDTO';
+import UserDTO from './UserDTO';
 
-export enum BookingStatus {
-  PENDING = 'PENDING',
-  REFUSED = 'REFUSED',
-  APPROVED = 'APPROVED',
-  OUT_FOR_DELIVERY = 'OUT_FOR_DELIVERY',
-  DELIVERED = 'DELIVERED',
-  RETURNED = 'RETURNED',
-  CANCELLED = 'CANCELLED',
-}
-
-export default class BookingDTO {
+type BookingDTO = {
   id: string;
   carId: string;
   car?: CarDTO;
@@ -24,9 +16,11 @@ export default class BookingDTO {
   insuranceDeposit: number;
   bookingDeposit: number;
   priceNote?: string;
-  status: string;
+  status: BookingStatus;
   authorId: string;
   author?: UserDTO;
   createdAt: string;
   updatedAt: string;
 }
+
+export default BookingDTO;

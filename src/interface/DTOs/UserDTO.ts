@@ -1,6 +1,6 @@
 import MembershipDTO from './MembershipDTO';
 
-export default interface UserDTO {
+type UserDTO = {
   id: string;
   name: string;
   email: string;
@@ -10,3 +10,5 @@ export default interface UserDTO {
   createdAt: string;
   updatedAt: string;
 }
+
+export default UserDTO;

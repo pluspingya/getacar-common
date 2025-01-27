@@ -1,18 +1,7 @@
-export enum AccountTier {
-  FREE = 'FREE',
-  SILVER = 'SILVER',
-  BRONZE = 'BRONZE',
-  GOLD = 'GOLD',
-  PLATINUM = 'PLATINUM',
-}
+import AccountTier from '../../domain/enums/AccountTier';
+import AccountStatus from '../../domain/enums/AccountStatus';
 
-export enum AccountStatus {
-  ACTIVE = 'ACTIVE',
-  INACTIVE = 'INACTIVE',
-  SUSPENDED = 'SUSPENDED',
-}
-
-export default interface AccountDTO {
+type AccountDTO = {
   id: string;
   name: string;
   tier: AccountTier;
@@ -20,3 +9,5 @@ export default interface AccountDTO {
   createdAt: string;
   updatedAt: string;
 }
+
+export default AccountDTO;

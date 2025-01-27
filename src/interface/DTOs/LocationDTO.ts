@@ -1,4 +1,4 @@
-import { LocationStatus } from '../../domain/enums';
+import LocationStatus from '../../domain/enums/LocationStatus';
 import AddressDTO from './AddressDTO';
 
 type LocationDTO = {

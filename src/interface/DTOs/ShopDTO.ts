@@ -1,6 +1,6 @@
 import AddressDTO from './AddressDTO';
 
-export default class ShopDTO {
+type ShopDTO = {
   id: string;
   accountId: string;  
   name: string;
@@ -13,3 +13,5 @@ export default class ShopDTO {
   createdAt: string;
   updatedAt: string;
 }
+
+export default ShopDTO;

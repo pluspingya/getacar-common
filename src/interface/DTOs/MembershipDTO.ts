@@ -1,4 +1,4 @@
-export default class MembershipDTO {
+type MembershipDTO = {
   id: string;
   accountId: string;
   accountName: string;
@@ -7,3 +7,5 @@ export default class MembershipDTO {
   createdAt: string;
   updatedAt: string;
 }
+
+export default MembershipDTO;

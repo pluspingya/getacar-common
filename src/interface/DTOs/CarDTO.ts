@@ -1,9 +1,6 @@
-export enum CarTransmission {
-  MANUAL = 'MANUAL',
-  AUTOMATIC = 'AUTOMATIC',
-}
+import CarTransmission from '../../domain/enums/CarTransmission';
 
-export default interface CarDTO {
+type CarDTO = {
   id: string;
   plateNumber: string;
   note?: string;
@@ -27,3 +24,5 @@ export default interface CarDTO {
   createdAt: string;
   updatedAt: string;
 }
+
+export default CarDTO;

@@ -1,7 +1,4 @@
-export enum ShopMembershipRole {
-  MANAGER = 'MANAGER',
-  STAFF = 'STAFF',
-}
+import ShopMembershipRole from '../../domain/enums/ShopMembershipRole';
 
 export default class ShopMembershipDTO {
   id: string;
