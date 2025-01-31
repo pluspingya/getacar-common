@@ -6,7 +6,10 @@ type ListingDTO = {
   accountId: string;
   car: CarDTO;
   description?: string;
-  locationIds: string[];
+  locations: ({
+    id: string;
+    name: string;
+  })[];
   rentalPrice: number;
   hourlyPrice: number;
   vendorPrice: number;
