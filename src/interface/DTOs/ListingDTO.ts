@@ -6,13 +6,14 @@ type ListingDTO = {
   accountId: string;
   car: CarDTO;
   description?: string;
-  locations: string[];
+  locationIds: string[];
   rentalPrice: number;
   hourlyPrice: number;
   vendorPrice: number;
   insuranceDeposit: number;
   bookingDeposit: number;
   minimumRentalDays: number;
+  maximumRentalHours: number;
   startDate: string;
   endDate: string;
   status: ListingStatus;
