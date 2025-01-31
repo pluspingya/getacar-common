@@ -1,3 +1,4 @@
+import IdName from '../../domain/types/IdName';
 import ListingStatus from '../../domain/enums/ListingStatus';
 import CarDTO from './CarDTO';
 
@@ -6,10 +7,7 @@ type ListingDTO = {
   accountId: string;
   car: CarDTO;
   description?: string;
-  locations: ({
-    id: string;
-    name: string;
-  })[];
+  locations: IdName[];
   rentalPrice: number;
   hourlyPrice: number;
   vendorPrice: number;
