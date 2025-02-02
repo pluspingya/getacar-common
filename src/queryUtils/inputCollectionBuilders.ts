@@ -11,6 +11,13 @@ export const buildNewConnectionInput = <ListItemType extends HasStringId>(
   return { connect: { id: item.id } }
 }
 
+export const buildNewConnectionInputs = <ListItemType extends HasStringId>(
+  list: PartialWatchedList<ListItemType> | undefined,
+): { connect: HasStringId[] } | undefined => {
+  if (!list || list.getItems().length === 0) return;
+  return { connect: list.getItems().map((item) => ({ id: item.id })) }
+}
+
 export const buildNestedCreateInputs = <ListItemType extends HasStringId, CreateInputType>(
   list: PartialWatchedList<ListItemType> | undefined,
   inputMapper: (item: ListItemType) => CreateInputType,
