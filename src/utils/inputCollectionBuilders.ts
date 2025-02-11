@@ -44,3 +44,16 @@ export const buildNestedUpdateInputs = <ListItemType extends HasStringId, Create
     updateMany: itemsToUpdate.length ? itemsToUpdate.map((item) => ({ data: updateMapper(item), where: { id: item.id } })) : undefined,
   }
 };
+
+export const buildUpdateConnectionInputs = <ListItemType extends HasStringId>(
+  list: PartialWatchedList<ListItemType> | undefined,
+): { connect?: HasStringId[]; disconnect?: HasStringId[] } | undefined => {
+  const itemsToConnect = list?.getNewItems() || [];
+  const itemsToDisconnect = list?.getRemovedItems() || [];
+  if (itemsToConnect.length + itemsToDisconnect.length === 0) return undefined;
+
+  return {
+    connect: itemsToConnect.length ? itemsToConnect.map((item) => ({ id: item.id })) : undefined,
+    disconnect: itemsToDisconnect.length ? itemsToDisconnect.map((item) => ({ id: item.id })) : undefined,
+  };
+};
