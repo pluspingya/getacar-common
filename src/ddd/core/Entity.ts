@@ -23,11 +23,42 @@ type InternalSetterMap<EntityType extends { [key in EntitySetterKeys]: any }, En
 
 export type EntitySetterMap<EntityType> = InternalSetterMap<EntityType, SetterKeys<keyof EntityType>>;
 
+type InternalProps<PropsType> = PropsType & { _isUpdated: boolean };
+
+const propSetProxy = () => (obj, prop, value): boolean => {
+  const oldValue = Reflect.get(obj, prop);
+  if (prop !== 'updatedAt' && !(value['equals'] ? value['equals'](oldValue) : value === oldValue)) {
+    let oldUpdatedAt: Date | undefined;
+    if (Reflect.has(obj, 'updatedAt')) {
+      oldUpdatedAt = Reflect.get(obj, 'updatedAt');
+      if (!Reflect.set(obj, 'updatedAt', new Date())) {
+        return false;
+      }
+    }
+    obj._isUpdated = true;
+  }
+  if (!Reflect.set(obj, prop, value)) {
+    return false;
+  }
+  return true;
+}
+
+const propGetProxy = () => (obj, prop) => {
+  if (prop === '_isUpdated') return undefined;
+  return Reflect.get(obj, prop);
+}
+
 export default abstract class Entity<PropsType> {
+  readonly props: PropsType;
+  private readonly _internalProps: InternalProps<PropsType>;
+
   constructor(
-    protected readonly props: PropsType,
+    props: PropsType,
     private readonly _id: string = createId(),
-  ) {}
+  ) {
+    this._internalProps = { ...props, _isUpdated: false };
+    this.props = this._proxyProps(this._internalProps);
+  }
 
   get id(): string {
     return this._id;
@@ -61,5 +92,12 @@ export default abstract class Entity<PropsType> {
       if (result instanceof Result && result.isFailure) return result;
     }
     return Result.ok();
+  }
+
+  private _proxyProps(props: InternalProps<PropsType>): PropsType {
+    return new Proxy(props, {
+      set: propSetProxy(),
+      get: propGetProxy(),
+    });
   }
 }
