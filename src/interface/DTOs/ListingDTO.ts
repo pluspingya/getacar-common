@@ -4,6 +4,7 @@ import LocationDTO from './LocationDTO';
 
 type ListingDTO = {
   id: string;
+  name: string;
   accountId: string;
   car: CarDTO;
   description?: string;
