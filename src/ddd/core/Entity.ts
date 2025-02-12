@@ -28,9 +28,7 @@ type InternalProps<PropsType> = PropsType & { _isUpdated: boolean };
 const propSetProxy = () => (obj, prop, value): boolean => {
   const oldValue = Reflect.get(obj, prop);
   if (prop !== 'updatedAt' && !(value['equals'] ? value['equals'](oldValue) : value === oldValue)) {
-    let oldUpdatedAt: Date | undefined;
     if (Reflect.has(obj, 'updatedAt')) {
-      oldUpdatedAt = Reflect.get(obj, 'updatedAt');
       if (!Reflect.set(obj, 'updatedAt', new Date())) {
         return false;
       }
