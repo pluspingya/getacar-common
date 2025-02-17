@@ -3,7 +3,10 @@ import ShopDTO from './ShopDTO';
 import CarDTO from './CarDTO';
 import LocationDTO from './LocationDTO';
 
-type DeliverFees = { [key: string]: number };
+type DeliverFee = {
+  locationId: string;
+  fee: number;
+}
 
 type ListingDTO = {
   id: string;
@@ -13,7 +16,7 @@ type ListingDTO = {
   car: CarDTO;
   description?: string;
   locations: LocationDTO[];
-  deliveryFees: DeliverFees;
+  deliveryFees: DeliverFee[];
   rentalPrice: number;
   hourlyPrice: number;
   vendorPrice: number;
