@@ -2,11 +2,7 @@ import ListingStatus from '../../domain/enums/ListingStatus';
 import ShopDTO from './ShopDTO';
 import CarDTO from './CarDTO';
 import LocationDTO from './LocationDTO';
-
-type DeliverFee = {
-  locationId: string;
-  fee: number;
-}
+import DeliverFeeDTO from './DeliveryFeeDTO';
 
 type ListingDTO = {
   id: string;
@@ -16,7 +12,7 @@ type ListingDTO = {
   car: CarDTO;
   description?: string;
   locations: LocationDTO[];
-  deliveryFees: DeliverFee[];
+  deliveryFees: DeliverFeeDTO[];
   rentalPrice: number;
   hourlyPrice: number;
   vendorPrice: number;
