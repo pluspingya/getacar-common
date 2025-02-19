@@ -1,9 +1,12 @@
 import BookingStatus from '../../domain/enums/BookingStatus';
 import CarDTO from './CarDTO';
+import ShopDTO from './ShopDTO';
 import UserDTO from './UserDTO';
 
 type BookingDTO = {
   id: string;
+  shopId: string;
+  shop?: ShopDTO;
   carId: string;
   car?: CarDTO;
   pickUpDate: string;
