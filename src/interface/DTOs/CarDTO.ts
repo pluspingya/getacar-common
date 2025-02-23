@@ -2,6 +2,7 @@ import CarTransmission from '../../domain/enums/CarTransmission';
 
 type CarDTO = {
   id: string;
+  name: string;
   plateNumber: string;
   note?: string;
   make: string;
