@@ -1,4 +1,5 @@
 import CarTransmission from '../../domain/enums/CarTransmission';
+import ImageDTO from './ImageDTO';
 
 type CarDTO = {
   id: string;
@@ -20,7 +21,7 @@ type CarDTO = {
   vendorPrice: number;
   insuranceDeposit: number;
   bookingDeposit: number;
-  images?: string[];
+  images?: ImageDTO[];
   accountId: string;
   createdAt: string;
   updatedAt: string;
