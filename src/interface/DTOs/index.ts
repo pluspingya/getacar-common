@@ -3,6 +3,7 @@ export { default as AddressDTO } from './AddressDTO';
 export { default as BookingDTO } from './BookingDTO';
 export { default as CarDTO } from './CarDTO';
 export { default as DeliveryFeeDTO } from './DeliveryFeeDTO';
+export { default as ImageDTO } from './ImageDTO';
 export { default as ListingDTO } from './ListingDTO';
 export { default as LocationDTO } from './LocationDTO';
 export { default as MembershipDTO } from './MembershipDTO';
