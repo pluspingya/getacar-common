@@ -1,5 +1,5 @@
 enum CarFuel {
-  Gasoline = 'Gasoline',
+  Petrol = 'Petrol',
   Diesel = 'Diesel',
   Hybrid = 'Hybrid',
   Electric = 'Electric',
