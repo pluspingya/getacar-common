@@ -1,3 +1,4 @@
+import CarFuel from '../../domain/enums/CarFuel';
 import CarTransmission from '../../domain/enums/CarTransmission';
 import ImageDTO from './ImageDTO';
 
@@ -12,7 +13,7 @@ type CarDTO = {
   year: number;
   transmission: CarTransmission;
   color: string;
-  fuel: string;
+  fuel: CarFuel;
   odometer: number;
   doors: number;
   seats: number;
