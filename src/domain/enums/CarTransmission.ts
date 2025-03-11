@@ -1,6 +1,10 @@
-enum CarTransmission {
-  MANUAL = 'MANUAL',
-  AUTOMATIC = 'AUTOMATIC',
-}
+// enum CarTransmission {
+//   Manual = 'Manual',
+//   Automatic = 'Automatic',
+// }
+
+type CarTransmission = 
+| 'Automatic'
+| 'Manual';
 
 export default CarTransmission;
