@@ -3,7 +3,6 @@ export { default as AccountTier } from './AccountTier';
 export { default as BookingStatus } from './BookingStatus';
 export { default as CarColor } from './CarColor';
 export { default as CarFuel } from './CarFuel';
-export { default as CarMake } from './CarMake';
 export { default as CarModel } from './CarModel';
 export { default as CarTransmission } from './CarTransmission';
 export { default as ListingStatus } from './ListingStatus';

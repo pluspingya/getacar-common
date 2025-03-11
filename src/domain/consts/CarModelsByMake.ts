@@ -1,4 +1,4 @@
-import CarMake from '../enums/CarMake';
+import CarMake from '../types/CarMake';
 import CarModel from '../enums/CarModel';
 
 // const CarModelsByMake: {[key in CarMake]: CarModel[]} = {
