@@ -1,5 +1,4 @@
-import CarFuel from '../../domain/enums/CarFuel';
-import CarTransmission from '../../domain/enums/CarTransmission';
+import { CarColor, CarFuel, CarMake, CarModel, CarTransmission } from '../../domain/types';
 import ImageDTO from './ImageDTO';
 
 type CarDTO = {
@@ -7,12 +6,12 @@ type CarDTO = {
   name: string;
   plateNumber: string;
   note?: string;
-  make: string;
-  model: string;
+  make: CarMake;
+  model: CarModel;
   submodel?: string;
   year: number;
   transmission: CarTransmission;
-  color: string;
+  color: CarColor;
   fuel: CarFuel;
   odometer: number;
   doors: number;

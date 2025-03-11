@@ -1,48 +1,5 @@
-import CarFuel from '../enums/CarFuel';
-import CarModel from '../enums/CarModel';
-
-// const CarFuelsByModel: {[key in CarModel]: CarFuel[]} = {
-//   //Toyota
-//   [CarModel.VIOS]: [CarFuel.Petrol],
-//   [CarModel.VELOZ]: [CarFuel.Petrol],
-//   [CarModel.YARIS]: [CarFuel.Petrol],
-//   [CarModel.YARISATIV]: [CarFuel.Petrol],
-//   [CarModel.YARISCROSS]: [CarFuel.Petrol],
-//   [CarModel.COROLLAALTIS]: [CarFuel.Petrol],
-//   [CarModel.COROLLACROSS]: [CarFuel.Petrol],
-//   [CarModel.CAMRY]: [CarFuel.Petrol],
-//   [CarModel.FORTUNER]: [CarFuel.Diesel],
-//   [CarModel.INNOVA]: [CarFuel.Petrol, CarFuel.Diesel],
-//   [CarModel.HILUX]: [CarFuel.Diesel],
-//   [CarModel.HIACE]: [CarFuel.Diesel],
-//   [CarModel.ALPHARD]: [CarFuel.Petrol, CarFuel.Hybrid],
-
-//   //Honda
-//   [CarModel.City]: [CarFuel.Petrol],
-//   [CarModel.Civic]: [CarFuel.Petrol],
-//   [CarModel.CRV]: [CarFuel.Petrol],
-//   [CarModel.HRV]: [CarFuel.Petrol, CarFuel.Hybrid],
-//   [CarModel.BRV]: [CarFuel.Petrol],
-//   [CarModel.Accord]: [CarFuel.Petrol, CarFuel.Hybrid],
-
-//   //Isuzu
-//   [CarModel.DMax]: [CarFuel.Diesel],
-//   [CarModel.MUX]: [CarFuel.Diesel],
-
-//   //Nissan
-//   [CarModel.Almera]: [CarFuel.Petrol],
-//   [CarModel.Navara]: [CarFuel.Diesel],
-//   [CarModel.Terra]: [CarFuel.Diesel],
-
-//   //Hyundai
-//   [CarModel.H1]: [CarFuel.Diesel],
-//   [CarModel.Staria]: [CarFuel.Diesel],
-
-//   //Suzuki
-//   [CarModel.Swift]: [CarFuel.Petrol],
-
-//   [CarModel.Other]: [CarFuel.Petrol, CarFuel.Diesel, CarFuel.Hybrid, CarFuel.Electric]
-// };
+import CarFuel from '../types/CarFuel';
+import CarModel from '../types/CarModel';
 
 const CarFuelsByModel: {[key in CarModel]: CarFuel[]} = {
   // Toyota

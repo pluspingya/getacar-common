@@ -1,5 +1,9 @@
+export { default as CarColors } from './CarColors';
+export { default as CarFuels } from './CarFuels';
 export { default as CarFuelsByModel } from './CarFuelsByModel';
 export { default as CarMakes } from './CarMakes';
+export { default as CarModels } from './CarModels';
 export { default as CarModelsByMake } from './CarModelsByMake';
 export { default as CarSeatsByModel } from './CarSeatsByModel';
+export { default as CarTransmissions } from './CarTransmissions';
 export { default as CarTransmissionsByModel } from './CarTransmissionsByModel';

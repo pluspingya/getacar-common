@@ -1,56 +1,5 @@
 import CarMake from '../types/CarMake';
-import CarModel from '../enums/CarModel';
-
-// const CarModelsByMake: {[key in CarMake]: CarModel[]} = {
-//   [CarMake.TOYOTA]: [
-//     CarModel.VIOS,
-//     CarModel.VELOZ,
-//     CarModel.YARIS,
-//     CarModel.YARISATIV,
-//     CarModel.YARISCROSS,
-//     CarModel.COROLLAALTIS,
-//     CarModel.COROLLACROSS,
-//     CarModel.CAMRY,
-//     CarModel.FORTUNER,
-//     CarModel.INNOVA,
-//     CarModel.HILUX,
-//     CarModel.HIACE,
-//     CarModel.ALPHARD,
-//     CarModel.Other
-//   ],
-//   [CarMake.HONDA]: [
-//     CarModel.City,
-//     CarModel.Civic,
-//     CarModel.CRV,
-//     CarModel.HRV,
-//     CarModel.BRV,
-//     CarModel.Accord,
-//     CarModel.Other
-//   ],
-//   [CarMake.ISUZU]: [
-//     CarModel.DMax,
-//     CarModel.MUX,
-//     CarModel.Other
-//   ],
-//   [CarMake.NISSAN]: [
-//     CarModel.Almera,
-//     CarModel.Navara,
-//     CarModel.Terra,
-//     CarModel.Other
-//   ],
-//   [CarMake.HYUNDAI]: [
-//     CarModel.H1,
-//     CarModel.Staria,
-//     CarModel.Other
-//   ],
-//   [CarMake.SUZUKI]: [
-//     CarModel.Swift,
-//     CarModel.Other  
-//   ],
-//   [CarMake.OTHER]: [
-//     CarModel.Other
-//   ]
-// }
+import CarModel from '../types/CarModel';
 
 const CarModelsByMake: {[key in CarMake]: CarModel[]} = {
   ['Toyota']: ['Vios', 'Veloz', 'Yaris', 'Yaris Ativ', 'Yaris Cross', 'Corolla Altis', 'Corolla Cross', 'Camry', 'Fortuner', 'Innova', 'Hilux', 'Hiace', 'Alphard', 'Other'],
