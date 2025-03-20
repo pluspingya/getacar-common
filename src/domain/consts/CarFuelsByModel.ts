@@ -9,7 +9,7 @@ const CarFuelsByModel: {[key in CarModel]: CarFuel[]} = {
   ['Yaris Ativ']: ['Petrol'],
   ['Yaris Cross']: ['Petrol'],
   ['Corolla Altis']: ['Petrol'],
-  ['Corolla Cross']: ['Petrol'],
+  ['Corolla Cross']: ['Hybrid', 'Petrol'],
   ['Camry']: ['Petrol', 'Hybrid'],
   ['Fortuner']: ['Diesel'],
   ['Innova']: ['Petrol', 'Diesel'],
