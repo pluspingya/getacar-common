@@ -8,3 +8,4 @@ export { default as CarSeatsByModel } from './CarSeatsByModel';
 export { default as CarTransmissions } from './CarTransmissions';
 export { default as CarTransmissionsByModel } from './CarTransmissionsByModel';
 export { default as CarTypes } from './CarTypes';
+export { default as CarTypesByModel } from './CarTypesByModel';
