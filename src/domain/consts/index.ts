@@ -7,3 +7,4 @@ export { default as CarModelsByMake } from './CarModelsByMake';
 export { default as CarSeatsByModel } from './CarSeatsByModel';
 export { default as CarTransmissions } from './CarTransmissions';
 export { default as CarTransmissionsByModel } from './CarTransmissionsByModel';
+export { default as CarTypes } from './CarTypes';
