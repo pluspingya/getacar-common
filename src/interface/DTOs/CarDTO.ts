@@ -1,4 +1,4 @@
-import { CarColor, CarFuel, CarMake, CarModel, CarTransmission } from '../../domain/types';
+import { CarColor, CarFuel, CarMake, CarModel, CarTransmission, CarType } from '../../domain/types';
 import ImageDTO from './ImageDTO';
 
 type CarDTO = {
@@ -6,6 +6,7 @@ type CarDTO = {
   name: string;
   plateNumber: string;
   note?: string;
+  type: CarType;
   make: CarMake;
   model: CarModel;
   submodel?: string;
