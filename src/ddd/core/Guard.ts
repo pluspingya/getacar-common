@@ -40,4 +40,11 @@ export default class Guard {
       })),
     );
   }
+
+  static againstUnallowedValue(argumentName: string, allowedValues: any[], value: any): Result<void> {
+    if (!allowedValues.includes(value)) {
+      return Result.fail(`${argumentName} value ${value} is not one of the expected values in ${JSON.stringify(allowedValues)}`);
+    }
+    return Result.ok();
+  }
 }
