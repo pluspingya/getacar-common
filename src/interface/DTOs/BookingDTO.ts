@@ -1,7 +1,7 @@
-import BookingStatus from '../../domain/enums/BookingStatus';
+import { BookingAdditionalFee, BookingStatus } from '../../domain';
+import BookingHistoryItemDTO from './BookingHistoryItemDTO';
 import CarDTO from './CarDTO';
 import ShopDTO from './ShopDTO';
-import UserDTO from './UserDTO';
 
 type BookingDTO = {
   id: string;
@@ -10,18 +10,20 @@ type BookingDTO = {
   carId: string;
   car?: CarDTO;
   pickUpDate: string;
-  pickUpLocation: string;
+  pickUpLocationId: string;
   returnDate: string;
-  returnLocation: string;
+  returnLocationId: string;
   deliveryNote?: string;
   rentalPrice: number;
+  numberOfDays: number;
+  numberOfHours: number;
+  additionalFees: { [key in BookingAdditionalFee]?: number };
   totalPrice: number;
   insuranceDeposit: number;
   bookingDeposit: number;
   priceNote?: string;
   status: BookingStatus;
-  authorId: string;
-  author?: UserDTO;
+  history: BookingHistoryItemDTO[];
   createdAt: string;
   updatedAt: string;
 }
