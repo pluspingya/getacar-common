@@ -8,7 +8,7 @@ type BookingHistoryItemDTO = {
   bookingId: string | null;
   authorType: string;
   authorId: string | null;
-  authoer: UserDTO | null;
+  author: UserDTO | null;
   createdAt: string;
 }
 
