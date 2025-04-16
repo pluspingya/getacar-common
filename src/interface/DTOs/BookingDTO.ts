@@ -1,6 +1,7 @@
 import { BookingAdditionalFee, BookingStatus } from '../../domain';
 import BookingHistoryItemDTO from './BookingHistoryItemDTO';
 import CarDTO from './CarDTO';
+import CustomerDTO from './CustomerDTO';
 import ShopDTO from './ShopDTO';
 
 type BookingDTO = {
@@ -9,6 +10,7 @@ type BookingDTO = {
   shop?: ShopDTO;
   carId: string;
   car?: CarDTO;
+  customer: CustomerDTO;
   pickUpDate: string;
   pickUpLocationId: string;
   returnDate: string;
