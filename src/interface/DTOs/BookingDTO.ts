@@ -6,6 +6,7 @@ import ShopDTO from './ShopDTO';
 
 type BookingDTO = {
   id: string;
+  ref: string;
   shopId: string;
   shop?: ShopDTO;
   carId: string;
