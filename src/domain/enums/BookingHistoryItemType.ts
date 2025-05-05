@@ -1,5 +1,6 @@
 enum BookingHistoryItemType {
   REQUEST = 'REQUEST',
+  UPLOAD = 'UPLOAD',
   CREATE = 'CREATE',
   UPDATE = 'UPDATE',
   APPROVE = 'APPROVE',
