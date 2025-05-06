@@ -1,4 +1,4 @@
-import { BookingAdditionalFee } from '../domain/enums';
+import { BookingAdditionalFees } from '../domain';
 import { ListingDTO } from '../interface/DTOs';
 
 export type TotalTime = { 
@@ -35,17 +35,14 @@ export function findAdditionalFees({
   returnLocationId: string;
   pickUpDate: Date;
   returnDate: Date;
-}, listingDTO: ListingDTO): { [key in BookingAdditionalFee]?: number } {
-  const additionalFees: { [key in BookingAdditionalFee]?: number } = {};
-  const outOfFreeServiceAreaDeliveryFee = listingDTO.deliveryFees.find((deliveryFee) => deliveryFee.locationId === pickUpLocationId)
-  if (outOfFreeServiceAreaDeliveryFee) {
-    additionalFees[BookingAdditionalFee.OUT_OF_FREE_SERVICE_AREA_DELIVERY] = outOfFreeServiceAreaDeliveryFee.fee;
+}, listingDTO: ListingDTO): BookingAdditionalFees {
+  const additionalFees: BookingAdditionalFees = {
+    outOfFreeServiceAreaDelivery: listingDTO.deliveryFees.find((deliveryFee) => deliveryFee.locationId === pickUpLocationId)?.fee || 0,
+    outOfFreeServiceAreaReturn: listingDTO.deliveryFees.find((deliveryFee) => deliveryFee.locationId === returnLocationId)?.fee || 0,
+    //TODO: Consider charging for the out of operating hours
+    //In order to do this, shop must specify the operating hours and charges in either listing or shop
+    outOfOperatingHoursDelivery: 0,
+    outOfOperatingHoursReturn: 0
   }
-  const outOfFreeServiceAreaReturnFee = listingDTO.deliveryFees.find((deliveryFee) => deliveryFee.locationId === returnLocationId);
-  if (outOfFreeServiceAreaReturnFee) {
-    additionalFees[BookingAdditionalFee.OUT_OF_FREE_SERVICE_AREA_RETURN] = outOfFreeServiceAreaReturnFee.fee;
-  }
-  //TODO: Consider charging for the out of operating hours
-  //In order to do this, shop must specify the operating hours and charges
   return additionalFees;
 }
