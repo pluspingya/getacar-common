@@ -1,4 +1,5 @@
-import { BookingAdditionalFee, BookingCompletionKey, BookingStatus } from '../../domain';
+import { BookingAdditionalFee, BookingStatus } from '../../domain';
+import BookingDocumentCompletionDTO from './BookingDocumentCompletionDTO';
 import BookingHistoryItemDTO from './BookingHistoryItemDTO';
 import CarDTO from './CarDTO';
 import CustomerDTO from './CustomerDTO';
@@ -26,7 +27,7 @@ type BookingDTO = {
   bookingDeposit: number;
   priceNote?: string;
   status: BookingStatus;
-  completion: { [key in BookingCompletionKey]: boolean };
+  documentCompletion: BookingDocumentCompletionDTO;
   history: BookingHistoryItemDTO[];
   createdAt: string;
   updatedAt: string;

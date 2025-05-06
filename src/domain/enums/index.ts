@@ -2,7 +2,6 @@ export { default as AccountStatus } from './AccountStatus';
 export { default as AccountTier } from './AccountTier';
 export { default as BookingAdditionalFee } from './BookingAdditionalFee';
 export { default as BookingCancellationReason } from './BookingCancellationReason';
-export { default as BookingCompletionKey } from './BookingCompletionKey';
 export { default as BookingHistoryItemType } from './BookingHistoryItemType';
 export { default as BookingStatus } from './BookingStatus';
 export { default as ListingStatus } from './ListingStatus';
