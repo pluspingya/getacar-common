@@ -1,5 +1,4 @@
-import { BookingAdditionalFee, BookingStatus } from '../../domain';
-import BookingDocumentCompletionDTO from './BookingDocumentCompletionDTO';
+import { BookingAdditionalFees, BookingDocumentCompletion, BookingStatus } from '../../domain';
 import BookingHistoryItemDTO from './BookingHistoryItemDTO';
 import CarDTO from './CarDTO';
 import CustomerDTO from './CustomerDTO';
@@ -21,13 +20,13 @@ type BookingDTO = {
   rentalPrice: number;
   numberOfDays: number;
   numberOfHours: number;
-  additionalFees: { [key in BookingAdditionalFee]?: number };
+  additionalFees: BookingAdditionalFees;
   totalPrice: number;
   insuranceDeposit: number;
   bookingDeposit: number;
   priceNote?: string;
   status: BookingStatus;
-  documentCompletion: BookingDocumentCompletionDTO;
+  documentCompletion: BookingDocumentCompletion;
   history: BookingHistoryItemDTO[];
   createdAt: string;
   updatedAt: string;
