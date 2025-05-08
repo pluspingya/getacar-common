@@ -3,7 +3,7 @@ enum BookingHistoryItemType {
   UPLOAD = 'UPLOAD',
   CREATE = 'CREATE',
   UPDATE = 'UPDATE',
-  APPROVE = 'APPROVE',
+  ACCEPT = 'ACCEPT',
   REJECT = 'REJECT',
   DELIVER = 'DELIVER',
   COMPLETE = 'COMPLETE',
