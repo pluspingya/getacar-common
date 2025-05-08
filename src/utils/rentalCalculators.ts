@@ -1,4 +1,4 @@
-import { BookingAdditionalFees } from '../domain';
+import { BookingAdditionalFee } from '../domain';
 import { ListingDTO } from '../interface/DTOs';
 
 export type TotalTime = { 
@@ -35,8 +35,8 @@ export function findAdditionalFees({
   returnLocationId: string;
   pickUpDate: Date;
   returnDate: Date;
-}, listingDTO: ListingDTO): BookingAdditionalFees {
-  const additionalFees: BookingAdditionalFees = {
+}, listingDTO: ListingDTO): BookingAdditionalFee {
+  const additionalFees: BookingAdditionalFee = {
     outOfFreeServiceAreaDelivery: listingDTO.deliveryFees.find((deliveryFee) => deliveryFee.locationId === pickUpLocationId)?.fee || 0,
     outOfFreeServiceAreaReturn: listingDTO.deliveryFees.find((deliveryFee) => deliveryFee.locationId === returnLocationId)?.fee || 0,
     //TODO: Consider charging for the out of operating hours
