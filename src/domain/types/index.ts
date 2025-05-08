@@ -1,4 +1,4 @@
-export { default as BookingAdditionalFees } from './BookingAdditionalFees';
+export { default as BookingAdditionalFee } from './BookingAdditionalFee';
 export { default as BookingDocumentCompletion } from './BookingDocumentCompletion';
 export { default as CarColor } from './CarColor';
 export { default as CarFuel } from './CarFuel';

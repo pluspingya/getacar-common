@@ -1,4 +1,4 @@
-import { BookingAdditionalFees, BookingDocumentCompletion, BookingStatus } from '../../domain';
+import { BookingAction, BookingAdditionalFee, BookingDocumentCompletion, BookingStatus } from '../../domain';
 import BookingHistoryItemDTO from './BookingHistoryItemDTO';
 import CarDTO from './CarDTO';
 import CustomerDTO from './CustomerDTO';
@@ -20,7 +20,7 @@ type BookingDTO = {
   rentalPrice: number;
   numberOfDays: number;
   numberOfHours: number;
-  additionalFees: BookingAdditionalFees;
+  additionalFee: BookingAdditionalFee;
   totalPrice: number;
   insuranceDeposit: number;
   bookingDeposit: number;
