@@ -1,4 +1,4 @@
-import { BookingAction, BookingAdditionalFees, BookingDocumentCompletion, BookingStatus } from '../../domain';
+import { BookingAdditionalFees, BookingDocumentCompletion, BookingStatus } from '../../domain';
 import BookingHistoryItemDTO from './BookingHistoryItemDTO';
 import CarDTO from './CarDTO';
 import CustomerDTO from './CustomerDTO';
@@ -27,7 +27,6 @@ type BookingDTO = {
   priceNote?: string;
   status: BookingStatus;
   documentCompletion: BookingDocumentCompletion;
-  allowedActions: BookingAction[];
   history: BookingHistoryItemDTO[];
   createdAt: string;
   updatedAt: string;
