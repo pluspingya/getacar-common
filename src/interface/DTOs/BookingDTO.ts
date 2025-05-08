@@ -27,6 +27,7 @@ type BookingDTO = {
   priceNote?: string;
   status: BookingStatus;
   documentCompletion: BookingDocumentCompletion;
+  allowedActions: BookingAction[];
   history: BookingHistoryItemDTO[];
   createdAt: string;
   updatedAt: string;
