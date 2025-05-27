@@ -47,4 +47,24 @@ export default class Guard {
     }
     return Result.ok();
   }
+
+  static againstEmptyString(argumentName: string, value: string): Result<void> {
+    if (value.trim() === '') {
+      return Result.fail(`${argumentName} cannot be an empty string`);
+    }
+    return Result.ok();
+  }
+
+  static againstEmptyStringBulk(args: GuardArgumentCollection): Result<void> {
+    return Guard.combine(args.map((arg) => this.againstEmptyString(arg.argumentName, arg.argument)));
+  }
+
+  static againstEmptyStringFields<T, K extends (keyof T & string)[]>(fieldNames: K, value: T): Result<void> {
+    return Guard.againstEmptyStringBulk(
+      fieldNames.map((fieldName) => ({
+        argument: value[fieldName],
+        argumentName: fieldName,
+      })),
+    );
+  }
 }
