@@ -6,6 +6,7 @@ export { default as BookingHistoryItemDTO } from './BookingHistoryItemDTO';
 export { default as CarDTO } from './CarDTO';
 export { default as CustomerDTO } from './CustomerDTO';
 export { default as DeliveryFeeDTO } from './DeliveryFeeDTO';
+export { default as EmailTemplateDTO } from './EmailTemplateDTO';
 export { default as ImageDTO } from './ImageDTO';
 export { default as ListingDTO } from './ListingDTO';
 export { default as LocationDTO } from './LocationDTO';
