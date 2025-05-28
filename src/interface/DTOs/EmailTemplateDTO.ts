@@ -1,6 +1,5 @@
 type EmailTemplateDTO = {
   id: string;
-  accountId: string;
   name: string;
   subject: string;
   body: string;
