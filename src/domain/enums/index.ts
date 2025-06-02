@@ -1,5 +1,6 @@
 export { default as AccountStatus } from './AccountStatus';
 export { default as AccountTier } from './AccountTier';
+export { default as AutomatedEmailType } from './AutomatedEmailType';
 export { default as BookingAction } from './BookingAction';
 export { default as BookingCancellationReason } from './BookingCancellationReason';
 export { default as BookingCancellationType } from './BookingCancellationType';
