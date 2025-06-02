@@ -1,5 +1,6 @@
 export { default as AccountDTO } from './AccountDTO';
 export { default as AddressDTO } from './AddressDTO';
+export { default as AutomatedEmailDTO } from './AutomatedEmailDTO';
 export { default as BookingDocumentDTO } from './BookingDocumentDTO';
 export { default as BookingDTO } from './BookingDTO';
 export { default as BookingHistoryItemDTO } from './BookingHistoryItemDTO';
