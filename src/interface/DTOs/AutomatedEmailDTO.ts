@@ -4,8 +4,9 @@ import EmailTemplateDTO from './EmailTemplateDTO';
 type AutomatedEmailDTO = {
   id: string;
   type: AutomatedEmailType;
-  emailTemplate: EmailTemplateDTO;
   enabled: boolean;
+  emailTemplateId: string;
+  emailTemplate: EmailTemplateDTO | undefined;
   createdAt: string;
   updatedAt: string;
 };
