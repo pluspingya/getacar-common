@@ -6,6 +6,7 @@ type AutomatedEmailDTO = {
   type: AutomatedEmailType;
   enabled: boolean;
   emailTemplateId: string;
+  emailTemplateName: string;
   emailTemplate: EmailTemplateDTO | undefined;
   createdAt: string;
   updatedAt: string;
