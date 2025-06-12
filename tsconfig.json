@@ -11,7 +11,7 @@
     "outDir": "lib",
     "baseUrl": ".",
     "declaration": true,
-    "target": "es5",
+    "target": "es2015",
     "module": "commonjs",
     "skipLibCheck": true
   },
