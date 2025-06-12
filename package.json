@@ -13,10 +13,18 @@
   },
   "typesVersions": {
     "*": {
-      "interface": ["./lib/interface/index.d.ts"],
-      "ddd": ["./lib/ddd/index.d.ts"],
-      "domain": ["./lib/domain/index.d.ts"],
-      "utils": ["./lib/utils/index.d.ts"]
+      "interface": [
+        "./lib/interface/index.d.ts"
+      ],
+      "ddd": [
+        "./lib/ddd/index.d.ts"
+      ],
+      "domain": [
+        "./lib/domain/index.d.ts"
+      ],
+      "utils": [
+        "./lib/utils/index.d.ts"
+      ]
     }
   },
   "module": "lib/index.js",
@@ -39,10 +47,12 @@
   },
   "homepage": "https://github.com/pluspingya/getacar-common#readme",
   "devDependencies": {
+    "@types/jsonata": "^1.5.1",
     "typescript": "^4.5.4"
   },
   "dependencies": {
     "@paralleldrive/cuid2": "^2.2.2",
+    "jsonata": "^2.0.6",
     "lodash": "^4.17.21"
   }
 }

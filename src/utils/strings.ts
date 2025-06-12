@@ -1,11 +1,11 @@
+import jsonata from 'jsonata';
+
 export type DataObject = { [key: string]: any };
 
 export function substitute(template: string, data: DataObject): string {
   return template.replace(/{([\w.]+)}/g, (_, path: string) => {
-    const value = path.split('.').reduce((obj, key) => {
-      return obj?.[key];
-    }, data);
-
+    const expression = jsonata(path);
+    const value = expression.evaluate(data);
     return value !== undefined && value !== null ? String(value) : '';
   });
 }
