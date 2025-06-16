@@ -13,26 +13,26 @@ export function substitute(template: string, data: DataObject): string {
 }
 
 export async function substituteWithJSONata(template: string, data: DataObject): Promise<string> {
-  const regex = /{([\w.]+)}/g;
-
+  const regex = /\{([^}]+)\}/g;
   const matches = [...template.matchAll(regex)];
-
   const replacements = await Promise.all(
     matches.map(async ([match, path]) => {
-      const expression = jsonata(path);
-      const value = await expression.evaluate(data);
+      let value = undefined;
+      try {
+        const expression = jsonata(path);
+        value = await expression.evaluate(data);
+      } catch (error) {
+      }
       return {
         match,
         replacement: value !== undefined && value !== null ? String(value) : ''
       };
     })
   );
-
   let result = template;
   for (const { match, replacement } of replacements) {
     result = result.replace(match, replacement);
   }
-
   return result;
 }
 
