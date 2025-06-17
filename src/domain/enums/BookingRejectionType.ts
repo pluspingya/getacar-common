@@ -1,0 +1,8 @@
+enum BookingRejectionType {
+  CAR_UNAVAILABLE = 'CAR_UNAVAILABLE',
+  INADEQUATE_DOCUMENTS = 'INADEQUATE_DOCUMENTS',
+  UNPAID_BOOKING_DEPOSIT = 'UNPAID_BOOKING_DEPOSIT',
+  OTHER = 'OTHER',
+}
+
+export default BookingRejectionType;
