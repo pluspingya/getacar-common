@@ -8,4 +8,5 @@ export { default as BookingRejectionType } from './BookingRejectionType';
 export { default as BookingStatus } from './BookingStatus';
 export { default as ListingStatus } from './ListingStatus';
 export { default as LocationStatus } from './LocationStatus';
+export { default as MembershipRole } from './MembershipRole';
 export { default as ShopMembershipRole } from './ShopMembershipRole';
