@@ -15,3 +15,4 @@ export { default as MembershipDTO } from './MembershipDTO';
 export { default as ShopDTO } from './ShopDTO';
 export { default as ShopMembershipDTO } from './ShopMembershipDTO';
 export { default as UserDTO } from './UserDTO';
+export { default as UserInvitationDTO } from './UserInvitationDTO';
