@@ -6,8 +6,8 @@ type UserDTO = {
   name: string;
   email: string;
   verified: boolean;
-  activeAccountMembershipId: string | undefined;
-  activeAccountMembership: AccountMembershipDTO | undefined;
+  activeAccountMembershipId: string | null;
+  activeAccountMembership: AccountMembershipDTO | null | undefined;
   accountMemberships: AccountMembershipDTO[] | undefined;
   shopMemberships: ShopMembershipDTO[] | undefined;
   createdAt: string;
