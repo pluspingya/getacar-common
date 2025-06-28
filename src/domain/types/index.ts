@@ -1,3 +1,4 @@
+export { default as AccountInvitationTokenData } from './AccountInvitationTokenData';
 export { default as BookingAdditionalFees } from './BookingAdditionalFees';
 export { default as BookingDocumentCompletion } from './BookingDocumentCompletion';
 export { default as CarColor } from './CarColor';

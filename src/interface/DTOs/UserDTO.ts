@@ -1,4 +1,4 @@
-import MembershipDTO from './MembershipDTO';
+import AccountMembershipDTO from './AccountMembershipDTO';
 
 type UserDTO = {
   id: string;
@@ -6,7 +6,7 @@ type UserDTO = {
   email: string;
   verified: boolean;
   activeMembershipId: string;
-  memberships: MembershipDTO[];
+  memberships: AccountMembershipDTO[];
   createdAt: string;
   updatedAt: string;
 }

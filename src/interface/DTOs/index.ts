@@ -1,4 +1,6 @@
 export { default as AccountDTO } from './AccountDTO';
+export { default as AccountInvitationDTO } from './AccountInvitationDTO';
+export { default as AccountMembershipDTO } from './AccountMembershipDTO';
 export { default as AddressDTO } from './AddressDTO';
 export { default as AutomatedEmailDTO } from './AutomatedEmailDTO';
 export { default as BookingDocumentDTO } from './BookingDocumentDTO';
@@ -11,8 +13,6 @@ export { default as EmailTemplateDTO } from './EmailTemplateDTO';
 export { default as ImageDTO } from './ImageDTO';
 export { default as ListingDTO } from './ListingDTO';
 export { default as LocationDTO } from './LocationDTO';
-export { default as MembershipDTO } from './MembershipDTO';
 export { default as ShopDTO } from './ShopDTO';
 export { default as ShopMembershipDTO } from './ShopMembershipDTO';
 export { default as UserDTO } from './UserDTO';
-export { default as UserInvitationDTO } from './UserInvitationDTO';

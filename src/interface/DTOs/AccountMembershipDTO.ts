@@ -1,4 +1,4 @@
-type MembershipDTO = {
+type AccountMembershipDTO = {
   id: string;
   accountId: string;
   accountName: string;
@@ -8,4 +8,4 @@ type MembershipDTO = {
   updatedAt: string;
 }
 
-export default MembershipDTO;
+export default AccountMembershipDTO;
