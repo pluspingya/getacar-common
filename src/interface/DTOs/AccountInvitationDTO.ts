@@ -4,7 +4,7 @@ type AccountInvitationDTO = {
   id: string;
   email: string;
   accountId: string;
-  membershipRole: AccountMembershipRole;
+  accountMembershipRole: AccountMembershipRole;
   createdAt: string;
   updatedAt: string;
 };

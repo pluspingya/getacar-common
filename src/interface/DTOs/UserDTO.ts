@@ -1,12 +1,14 @@
 import AccountMembershipDTO from './AccountMembershipDTO';
+import ShopMembershipDTO from './ShopMembershipDTO';
 
 type UserDTO = {
   id: string;
   name: string;
   email: string;
   verified: boolean;
-  activeMembershipId: string;
-  memberships: AccountMembershipDTO[];
+  activeAccountMembershipId: string | undefined;
+  accountMemberships: AccountMembershipDTO[] | undefined;
+  shopMemberships: ShopMembershipDTO[] | undefined;
   createdAt: string;
   updatedAt: string;
 }
