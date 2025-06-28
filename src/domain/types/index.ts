@@ -9,3 +9,4 @@ export { default as CarTransmission } from './CarTransmission';
 export { default as CarType } from './CarType';
 export { default as IdName } from './IdName';
 export { default as PaginationList } from './PaginationList';
+export { default as UserTokenData } from './UserTokenData';
