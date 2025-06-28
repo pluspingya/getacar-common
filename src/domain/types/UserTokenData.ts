@@ -4,11 +4,11 @@ export type UserTokenData = {
   id: string;
   email: string;
   name: string;
-  activeAccountMembership?: {
+  activeAccountMembership: {
     accountId: string;
     accountName: string;
     role: AccountMembershipRole;
-  };
+  } | null;
   shopMemberships: {
     shopId: string;
     shopName: string;
