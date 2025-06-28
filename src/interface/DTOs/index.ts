@@ -1,5 +1,5 @@
 export { default as AccountDTO } from './AccountDTO';
-export { default as AccountInvitationDTO } from './AccountInvitationDTO';
+export { default as InvitationDTO } from './InvitationDTO';
 export { default as AccountMembershipDTO } from './AccountMembershipDTO';
 export { default as AddressDTO } from './AddressDTO';
 export { default as AutomatedEmailDTO } from './AutomatedEmailDTO';

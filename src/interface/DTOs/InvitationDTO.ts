@@ -1,6 +1,6 @@
 import { AccountMembershipRole } from '../../domain';
 
-type AccountInvitationDTO = {
+type InvitationDTO = {
   id: string;
   email: string;
   accountId: string;
@@ -9,4 +9,4 @@ type AccountInvitationDTO = {
   updatedAt: string;
 };
 
-export default AccountInvitationDTO;
+export default InvitationDTO;
