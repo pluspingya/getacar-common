@@ -6,10 +6,12 @@ export type UserTokenData = {
   name: string;
   activeAccountMembership?: {
     accountId: string;
+    accountName: string;
     role: AccountMembershipRole;
   };
   shopMemberships: {
     shopId: string;
+    shopName: string;
     role: ShopMembershipRole;
   }[];
 }
