@@ -1,9 +1,11 @@
+import { AccountMembershipRole } from '../../domain';
+
 type AccountMembershipDTO = {
   id: string;
   accountId: string;
   accountName: string;
   userId: string;
-  role: string;
+  role: AccountMembershipRole;
   createdAt: string;
   updatedAt: string;
 }

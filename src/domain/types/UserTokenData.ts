@@ -1,4 +1,5 @@
 import { AccountMembershipRole, ShopMembershipRole } from '../enums';
+import MinimizedAccountMembership from './MinimizedAccountMembership';
 
 export type UserTokenData = {
   id: string;
@@ -10,12 +11,7 @@ export type UserTokenData = {
     accountName: string;
     role: AccountMembershipRole;
   } | null;
-  accountMemberships: {
-    id: string;
-    accountId: string;
-    accountName: string;
-    role: AccountMembershipRole;
-  }[];
+  accountMemberships: MinimizedAccountMembership[];
   shopMemberships: {
     id: string;
     shopId: string;
