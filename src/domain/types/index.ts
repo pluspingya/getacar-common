@@ -10,4 +10,5 @@ export { default as CarType } from './CarType';
 export { default as IdName } from './IdName';
 export { default as InvitationTokenData } from './InvitationTokenData';
 export { default as PaginationList } from './PaginationList';
+export { default as PaginationQuery } from './PaginationQuery';
 export { default as UserTokenData } from './UserTokenData';
