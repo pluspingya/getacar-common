@@ -7,6 +7,7 @@ export { default as BookingCancellationType } from './BookingCancellationType';
 export { default as BookingHistoryItemType } from './BookingHistoryItemType';
 export { default as BookingRejectionType } from './BookingRejectionType';
 export { default as BookingStatus } from './BookingStatus';
+export { default as InvitationStatus } from './InvitationStatus';
 export { default as ListingStatus } from './ListingStatus';
 export { default as LocationStatus } from './LocationStatus';
 export { default as ShopMembershipRole } from './ShopMembershipRole';
