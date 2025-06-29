@@ -1,4 +1,4 @@
-export { default as AccountInvitationTokenData } from './AccountInvitationTokenData';
+export { default as AuthorizationContext } from './AuthorizationContext';
 export { default as BookingAdditionalFees } from './BookingAdditionalFees';
 export { default as BookingDocumentCompletion } from './BookingDocumentCompletion';
 export { default as CarColor } from './CarColor';
@@ -8,5 +8,6 @@ export { default as CarModel } from './CarModel';
 export { default as CarTransmission } from './CarTransmission';
 export { default as CarType } from './CarType';
 export { default as IdName } from './IdName';
+export { default as InvitationTokenData } from './InvitationTokenData';
 export { default as PaginationList } from './PaginationList';
 export { default as UserTokenData } from './UserTokenData';
