@@ -1,6 +1,6 @@
 enum InvitationStatus {
   PENDING = 'PENDING',
-  ACCPETED = 'ACCEPTED',
+  ACCEPTED = 'ACCEPTED',
   REJECTED = 'REJECTED',
 }
 
