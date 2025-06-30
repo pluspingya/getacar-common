@@ -16,6 +16,7 @@ export type UserTokenData = {
     id: string;
     shopId: string;
     shopName: string;
+    accountId: string;
     role: ShopMembershipRole;
   }[];
 }
