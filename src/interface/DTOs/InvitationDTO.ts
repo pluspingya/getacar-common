@@ -5,6 +5,7 @@ type InvitationDTO = {
   email: string;
   accountId: string;
   accountMembershipRole: AccountMembershipRole;
+  userExists: boolean;
   status: InvitationStatus;
   createdAt: string;
   updatedAt: string;
