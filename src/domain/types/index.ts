@@ -12,4 +12,5 @@ export { default as InvitationTokenData } from './InvitationTokenData';
 export { default as MinimizedAccountMembership } from './MinimizedAccountMembership';
 export { default as PaginationList } from './PaginationList';
 export { default as PaginationQuery } from './PaginationQuery';
+export { default as SupportedLanguageCode } from './SupportedLanguageCode';
 export { default as UserTokenData } from './UserTokenData';

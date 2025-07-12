@@ -9,3 +9,4 @@ export { default as CarTransmissions } from './CarTransmissions';
 export { default as CarTransmissionsByModel } from './CarTransmissionsByModel';
 export { default as CarTypes } from './CarTypes';
 export { default as CarTypesByModel } from './CarTypesByModel';
+export { default as SupportedLanguageCodes } from './SupportedLanguageCodes';

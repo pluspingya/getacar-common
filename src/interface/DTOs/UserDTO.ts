@@ -10,6 +10,7 @@ type UserDTO = {
   activeAccountMembership: AccountMembershipDTO | null | undefined;
   accountMemberships: AccountMembershipDTO[] | undefined;
   shopMemberships: ShopMembershipDTO[] | undefined;
+  languageCode: string | null;
   createdAt: string;
   updatedAt: string;
 }

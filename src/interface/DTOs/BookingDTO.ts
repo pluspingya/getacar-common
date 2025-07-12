@@ -29,6 +29,7 @@ type BookingDTO = {
   documentCompletion: BookingDocumentCompletion;
   allowedActions?: BookingAction[];
   history: BookingHistoryItemDTO[];
+  languageCode: string | null;
   createdAt: string;
   updatedAt: string;
 }
