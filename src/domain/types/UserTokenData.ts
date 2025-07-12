@@ -1,4 +1,5 @@
 import { AccountMembershipRole, ShopMembershipRole } from '../enums';
+import LanguageCode from './LanguageCode';
 import MinimizedAccountMembership from './MinimizedAccountMembership';
 
 export type UserTokenData = {
@@ -19,6 +20,7 @@ export type UserTokenData = {
     accountId: string;
     role: ShopMembershipRole;
   }[];
+  languageCode: LanguageCode;
 }
 
 export default UserTokenData;
