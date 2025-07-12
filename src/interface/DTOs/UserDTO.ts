@@ -1,3 +1,4 @@
+import SupportedLanguageCode from '../../domain/types/SupportedLanguageCode';
 import AccountMembershipDTO from './AccountMembershipDTO';
 import ShopMembershipDTO from './ShopMembershipDTO';
 
@@ -10,7 +11,7 @@ type UserDTO = {
   activeAccountMembership: AccountMembershipDTO | null | undefined;
   accountMemberships: AccountMembershipDTO[] | undefined;
   shopMemberships: ShopMembershipDTO[] | undefined;
-  languageCode: string | null;
+  languageCode: SupportedLanguageCode;
   createdAt: string;
   updatedAt: string;
 }
