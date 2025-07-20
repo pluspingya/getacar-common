@@ -1,6 +1,5 @@
 type CustomerDTO = {
-  firstName: string;
-  lastName: string;
+  name: string;
   email: string;
   phone: string;
   otherContact: string | null;
