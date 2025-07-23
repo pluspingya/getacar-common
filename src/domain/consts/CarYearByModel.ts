@@ -2,10 +2,9 @@ import CarModel from '../types/CarModel';
 
 const populateYears = (start: number, end: number): number[] => {
   const years: number[] = [];
-  for (let i = start; i >= end; i--) {
+  for (let i = start; i <= end; i++) {
     years.push(i);
   }
-  years.reverse();
   return years;
 };
 
