@@ -14,16 +14,20 @@ const thisYear = new Date().getFullYear();
 const CarYearsByModel: {[key in CarModel]: number[]} = {
   // Toyota
   ['Vios']: [
-    ...populateYears(2013, 2022), 
-    ...populateYears(2007, 2012)
+    ...new Set([
+      ...populateYears(2007, 2012),
+      ...populateYears(2013, 2022),
+    ])
   ],
   ['Veloz']: populateYears(2022, thisYear),
   ['Yaris']: populateYears(2013, thisYear),
   ['Yaris Ativ']: populateYears(2022, thisYear),
   ['Yaris Cross']: populateYears(2022, thisYear),
   ['Corolla Altis']: [
-    ...populateYears(2016, thisYear), //Gen 12
-    ...populateYears(2013, 2016) // Gen 11
+    ...new Set([
+      ...populateYears(2013, 2016), // Gen 11
+      ...populateYears(2016, thisYear), //Gen 12
+    ])
    ],
   ['Corolla Cross']: populateYears(2022, thisYear),
   ['Camry']: populateYears(2013, thisYear),
