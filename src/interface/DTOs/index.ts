@@ -3,6 +3,7 @@ export { default as InvitationDTO } from './InvitationDTO';
 export { default as AccountMembershipDTO } from './AccountMembershipDTO';
 export { default as AddressDTO } from './AddressDTO';
 export { default as AutomatedEmailDTO } from './AutomatedEmailDTO';
+export { default as BookingBlockerDTO } from './BookingBlockerDTO';
 export { default as BookingDocumentDTO } from './BookingDocumentDTO';
 export { default as BookingDTO } from './BookingDTO';
 export { default as BookingHistoryItemDTO } from './BookingHistoryItemDTO';
