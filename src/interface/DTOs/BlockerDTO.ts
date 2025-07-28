@@ -1,4 +1,4 @@
-type BookingBlockerDTO = {
+type BlockerDTO = {
   id: string;
   accountId: string;
   carId: string;
@@ -9,4 +9,4 @@ type BookingBlockerDTO = {
   updatedAt: string;
 }
 
-export default BookingBlockerDTO;
+export default BlockerDTO;
