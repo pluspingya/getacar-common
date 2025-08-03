@@ -15,7 +15,6 @@ type ListingDTO = {
   deliveryFees: DeliverFeeDTO[];
   rentalPrice: number;
   hourlyPrice: number;
-  vendorPrice: number;
   insuranceDeposit: number;
   bookingDeposit: number;
   minimumRentalDays: number;

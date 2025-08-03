@@ -14,12 +14,10 @@ type CarDTO = {
   transmission: CarTransmission;
   color: CarColor;
   fuel: CarFuel;
-  odometer: number;
   doors: number;
   seats: number;
   rentalPrice: number;
   hourlyPrice: number;
-  vendorPrice: number;
   insuranceDeposit: number;
   bookingDeposit: number;
   images?: ImageDTO[];
