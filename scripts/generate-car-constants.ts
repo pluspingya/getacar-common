@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { parse } from 'csv-parse/sync';
 
-const csvFilePath = join(__dirname, '../assets/Get A Car 24 Co. Ltd. - Car Options.csv');
+const csvFilePath = join(__dirname, '../../getacar-assets/Get A Car 24 Co. Ltd. - Car Options.csv');
 const csvData = readFileSync(csvFilePath);
 const records = parse(csvData, {
   columns: true,
