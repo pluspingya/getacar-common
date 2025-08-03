@@ -9,5 +9,5 @@ export { default as CarTransmissions } from './CarTransmissions';
 export { default as CarTransmissionsByModel } from './CarTransmissionsByModel';
 export { default as CarTypes } from './CarTypes';
 export { default as CarTypesByModel } from './CarTypesByModel';
-export { default as CarYearByModel } from './CarYearByModel';
+export { default as CarYearsByModel } from './CarYearsByModel';
 export { default as LanguageCodes } from './LanguageCodes';

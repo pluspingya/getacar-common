@@ -1,2 +1,2 @@
-const CarTypes = ['Sedan', 'SUV', 'Pickup', 'Van', 'Wagon', 'Hatchback', 'Other'] as const;
+const CarTypes = ["Sedan","Hatchback","SUV & PPV","MPV & Van","Pickup","Coupe","Convertible"] as const;
 export default Object.freeze(CarTypes);

@@ -1,3 +1,2 @@
-const CarMakes = ['Toyota', 'Honda', 'Isuzu', 'Nissan', 'Hyundai', 'Suzuki'] as const;
-
+const CarMakes = ["Toyota","Isuzu","Honda","Ford","Mitsubishi","BYD","MG","Mazda","Nissan","Neta","GWM Havel","GWM Ora","GWM Tank","GAC Aion","Deepal","Xpeng","Zeekr","Jaecoo","Hyundai","Kia","BWM","Mercedes-Benz"] as const;
 export default Object.freeze(CarMakes);
