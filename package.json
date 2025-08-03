@@ -34,7 +34,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "postinstall": "yarn build"
+    "postinstall": "yarn build",
+    "gen-cars": "tsx scripts/generate-car-constants.ts"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,9 @@
   "homepage": "https://github.com/pluspingya/getacar-common#readme",
   "devDependencies": {
     "@types/jsonata": "^1.5.1",
+    "csv-parse": "^6.1.0",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
     "typescript": "^4.5.4"
   },
   "dependencies": {
