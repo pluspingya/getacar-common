@@ -18,10 +18,11 @@ type BookingDTO = {
   returnLocationId: string;
   deliveryNote?: string;
   rentalPrice: number;
+  hourlyPrice: number;
   numberOfDays: number;
   numberOfHours: number;
-  additionalFees: BookingAdditionalFees;
   totalPrice: number;
+  additionalFees: BookingAdditionalFees;
   insuranceDeposit: number;
   bookingDeposit: number;
   priceNote?: string;
