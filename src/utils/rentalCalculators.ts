@@ -9,7 +9,7 @@ export type TotalTime = {
 export function findTotalTime(pickUpDate: Date, returnDate: Date): TotalTime {
   const diff = returnDate.getTime() - pickUpDate.getTime();
   let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  let hours = Math.floor(diff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+  let hours = Math.ceil(diff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
   return { days, hours };
 }
 
