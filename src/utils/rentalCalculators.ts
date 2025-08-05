@@ -6,10 +6,14 @@ export type TotalTime = {
   hours: number; 
 };
 
-export function findTotalTime(pickUpDate: Date, returnDate: Date): TotalTime {
+export function findTotalTime(pickUpDate: Date, returnDate: Date, maxHours: number = 5): TotalTime {
   const diff = returnDate.getTime() - pickUpDate.getTime();
   let days = Math.floor(diff / (1000 * 60 * 60 * 24));
   let hours = Math.ceil(diff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+  if (hours > maxHours) {
+    days += 1;
+    hours = 0;
+  }
   return { days, hours };
 }
 
