@@ -49,3 +49,20 @@ export function findAdditionalFees({
     outOfOperatingHoursReturn: 0
   }
 }
+
+export function findPriceDueAtPickup(booking: {
+  totalPrice: number;
+  insuranceDeposit: number;
+  bookingDeposit: number;
+  additionalFees?: BookingAdditionalFees;
+}): number {
+  return (
+    booking.totalPrice 
+    + booking.insuranceDeposit 
+    + (booking.additionalFees?.outOfOperatingHoursDelivery || 0)
+    + (booking.additionalFees?.outOfOperatingHoursReturn || 0)
+    + (booking.additionalFees?.outOfFreeServiceAreaDelivery || 0)
+    + (booking.additionalFees?.outOfFreeServiceAreaReturn || 0)
+    - booking.bookingDeposit
+  );
+}
