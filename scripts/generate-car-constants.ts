@@ -32,9 +32,10 @@ const populateYears = (start: number, end: number): number[] => {
 
 const thisYear = new Date().getFullYear();
 
+const carTypes = new Set<string>();
 const carMakes = new Set<string>();
 const carModels = new Set<string>();
-const carTypes = new Set<string>();
+const carYears = new Set<number>();
 const carTransmissions = new Set<string>();
 const carFuels = new Set<string>();
 const carSeats = new Set<string>();
@@ -50,10 +51,14 @@ const carYearsByModel = new Map<string, number[]>();
 for (const record of records) {
   const { Make, Model: dirtyModel, Type, Transmission, Fuel, Seat, Color, Year } = record as CarRecord;
   // console.log(`Make: ${Make}, Model: ${Model}, Type: ${Type}, Transmission: ${Transmission}, Fuel: ${Fuel}, Seat: ${Seat}`);
+  const [fromYear, toYear] = Year.split('-').map(y => Number(y.trim()));
+  const years = populateYears(fromYear || thisYear, toYear || thisYear);
+
   const Model = dirtyModel.replace(/"/g, '').trim();
   carMakes.add(Make);
   carModels.add(Model);
   carTypes.add(Type);
+  years.forEach(year => carYears.add(year));
   const transmissions = Transmission.split(',').map(t => t.trim());
   transmissions.forEach(t => carTransmissions.add(t));
   const fuels = Fuel.split(',').map(f => f.trim());
@@ -98,8 +103,7 @@ for (const record of records) {
     carSeatsByModel.get(Model)?.push(Number(s));
   });
 
-  const [fromYear, toYear] = Year.split('-').map(y => Number(y.trim()));
-  carYearsByModel.set(Model, populateYears(fromYear || thisYear, toYear || thisYear).reverse());
+  carYearsByModel.set(Model, years.reverse());
 }
 
 // console.log('Unique car makes:', Array.from(carMakes));
@@ -113,9 +117,9 @@ for (const record of records) {
 // console.log('Car transmissions by model:', carTransmissionsByModel);
 // console.log('Car types by model:', carTypesByModel);
 
-const writeArrayConst = (name: string, values: Set<string>) => {
+const writeArrayConst = (name: string, values: Set<any> | any[]) => {
   const output = `src/domain/consts/${name}.ts`;
-  const content = `const ${name} = ${JSON.stringify(Array.from(values))} as const;
+  const content = `const ${name} = ${JSON.stringify(Array.isArray(values) ? values : Array.from(values))} as const;
 export default Object.freeze(${name});`;
   writeFileSync(output, content);
   console.log(`Wrote ${name} to ${output}`);
@@ -151,11 +155,14 @@ const writeObjectConst = ({
   console.log(`Wrote ${name} to ${output}`);
 }
 
-writeArrayConst('CarFuels', carFuels);
+const carYearsSorted = Array.from(carYears).sort((a, b) => b - a);
+
+writeArrayConst('CarTypes', carTypes);
 writeArrayConst('CarMakes', carMakes);
 writeArrayConst('CarModels', carModels);
+writeArrayConst('CarYears', carYearsSorted);
+writeArrayConst('CarFuels', carFuels);
 writeArrayConst('CarTransmissions', carTransmissions);
-writeArrayConst('CarTypes', carTypes);
 writeArrayConst('CarColors', carColors);
 
 writeObjectConst({

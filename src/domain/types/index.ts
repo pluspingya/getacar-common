@@ -7,6 +7,7 @@ export { default as CarMake } from './CarMake';
 export { default as CarModel } from './CarModel';
 export { default as CarTransmission } from './CarTransmission';
 export { default as CarType } from './CarType';
+export { default as CarYear } from './CarYear';
 export { default as IdName } from './IdName';
 export { default as InvitationTokenData } from './InvitationTokenData';
 export { default as LanguageCode } from './LanguageCode';
