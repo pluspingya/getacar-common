@@ -66,7 +66,9 @@ for (const record of records) {
   if (!carMakesByType.has(Type)) {
     carMakesByType.set(Type, []);
   }
-  carMakesByType.get(Type)?.push(Make);
+  if (!carMakesByType.get(Type)?.includes(Make)) {
+    carMakesByType.get(Type)?.push(Make);
+  }
 
   if (!carModelsByMake.has(Make)) {
     carModelsByMake.set(Make, []);
