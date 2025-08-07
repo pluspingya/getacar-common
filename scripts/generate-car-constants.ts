@@ -39,6 +39,7 @@ const carTransmissions = new Set<string>();
 const carFuels = new Set<string>();
 const carSeats = new Set<string>();
 const carColors = new Set<string>();
+const carMakesByType = new Map<string, string[]>();
 const carModelsByMake = new Map<string, string[]>();
 const carTypesByModel = new Map<string, string>();
 const carTransmissionsByModel = new Map<string, string[]>();
@@ -61,6 +62,11 @@ for (const record of records) {
   seats.forEach(s => carSeats.add(s));
 
   if (Color) carColors.add(Color);
+
+  if (!carMakesByType.has(Type)) {
+    carMakesByType.set(Type, []);
+  }
+  carMakesByType.get(Type)?.push(Make);
 
   if (!carModelsByMake.has(Make)) {
     carModelsByMake.set(Make, []);
@@ -143,10 +149,6 @@ const writeObjectConst = ({
   console.log(`Wrote ${name} to ${output}`);
 }
 
-// const writeCarYearsConst = () => {
-//   const output = 'src/domain/consts/CarYearsByModel.ts';
-// }
-
 writeArrayConst('CarFuels', carFuels);
 writeArrayConst('CarMakes', carMakes);
 writeArrayConst('CarModels', carModels);
@@ -154,6 +156,12 @@ writeArrayConst('CarTransmissions', carTransmissions);
 writeArrayConst('CarTypes', carTypes);
 writeArrayConst('CarColors', carColors);
 
+writeObjectConst({
+  name: 'CarMakesByType',
+  keyName: 'CarType',
+  valueName: 'CarMake',
+  object: carMakesByType
+})
 writeObjectConst({
   name: 'CarFuelsByModel',
   keyName: 'CarModel',
