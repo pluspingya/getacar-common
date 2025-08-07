@@ -36,9 +36,9 @@ const carTypes = new Set<string>();
 const carMakes = new Set<string>();
 const carModels = new Set<string>();
 const carYears = new Set<number>();
+const carSeats = new Set<number>();
 const carTransmissions = new Set<string>();
 const carFuels = new Set<string>();
-const carSeats = new Set<string>();
 const carColors = new Set<string>();
 const carMakesByType = new Map<string, string[]>();
 const carModelsByMake = new Map<string, string[]>();
@@ -63,7 +63,7 @@ for (const record of records) {
   transmissions.forEach(t => carTransmissions.add(t));
   const fuels = Fuel.split(',').map(f => f.trim());
   fuels.forEach(f => carFuels.add(f));
-  const seats = Seat.split(',').map(s => s.trim());
+  const seats = Seat.split(',').map(s => Number(s.trim()));
   seats.forEach(s => carSeats.add(s));
 
   if (Color) carColors.add(Color);
@@ -106,17 +106,6 @@ for (const record of records) {
   carYearsByModel.set(Model, years.reverse());
 }
 
-// console.log('Unique car makes:', Array.from(carMakes));
-// console.log('Unique car types:', Array.from(carTypes));
-// console.log('Unique car fuels:', Array.from(carFuels));
-// console.log('Unique car seats:', Array.from(carSeats));
-// console.log('Unique car transmissions:', Array.from(carTransmissions));
-// console.log('Car models by make:', carModelsByMake);
-// console.log('Car fuels by model:', carFuelsByModel);
-// console.log('Car seats by model:', carSeatsByModel);
-// console.log('Car transmissions by model:', carTransmissionsByModel);
-// console.log('Car types by model:', carTypesByModel);
-
 const writeArrayConst = (name: string, values: Set<any> | any[]) => {
   const output = `src/domain/consts/${name}.ts`;
   const content = `const ${name} = ${JSON.stringify(Array.isArray(values) ? values : Array.from(values))} as const;
@@ -156,15 +145,22 @@ const writeObjectConst = ({
 }
 
 const carYearsSorted = Array.from(carYears).sort((a, b) => b - a);
+const carSeatsSorted = Array.from(carSeats).sort((a, b) => a - b);
 
 writeArrayConst('CarTypes', carTypes);
 writeArrayConst('CarMakes', carMakes);
 writeArrayConst('CarModels', carModels);
 writeArrayConst('CarYears', carYearsSorted);
-writeArrayConst('CarFuels', carFuels);
+writeArrayConst('CarSeats', carSeatsSorted);
 writeArrayConst('CarTransmissions', carTransmissions);
+writeArrayConst('CarFuels', carFuels);
 writeArrayConst('CarColors', carColors);
-
+writeObjectConst({
+  name: 'CarTypesByModel',
+  keyName: 'CarModel',
+  valueName: 'CarType',
+  object: carTypesByModel
+});
 writeObjectConst({
   name: 'CarMakesByType',
   keyName: 'CarType',
@@ -172,43 +168,38 @@ writeObjectConst({
   object: carMakesByType
 })
 writeObjectConst({
-  name: 'CarFuelsByModel',
-  keyName: 'CarModel',
-  valueName: 'CarFuel',
-  object: carFuelsByModel
-});
-
-writeObjectConst({
   name: 'CarModelsByMake',
   keyName: 'CarMake',
   valueName: 'CarModel',
   object: carModelsByMake
 });
-
-writeObjectConst({
-  name: 'CarSeatsByModel',
-  keyName: 'CarModel',
-  valueName: 'number',
-  object: carSeatsByModel
-});
-
-writeObjectConst({
-  name: 'CarTransmissionsByModel',
-  keyName: 'CarModel',
-  valueName: 'CarTransmission',
-  object: carTransmissionsByModel
-});
-
-writeObjectConst({
-  name: 'CarTypesByModel',
-  keyName: 'CarModel',
-  valueName: 'CarType',
-  object: carTypesByModel
-});
-
 writeObjectConst({
   name: 'CarYearsByModel',
   keyName: 'CarModel',
   valueName: 'number',
   object: carYearsByModel
 })
+writeObjectConst({
+  name: 'CarSeatsByModel',
+  keyName: 'CarModel',
+  valueName: 'number',
+  object: carSeatsByModel
+});
+writeObjectConst({
+  name: 'CarTransmissionsByModel',
+  keyName: 'CarModel',
+  valueName: 'CarTransmission',
+  object: carTransmissionsByModel
+});
+writeObjectConst({
+  name: 'CarFuelsByModel',
+  keyName: 'CarModel',
+  valueName: 'CarFuel',
+  object: carFuelsByModel
+});
+
+
+
+
+
+
