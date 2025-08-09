@@ -2,6 +2,8 @@ export { default as AccountDTO } from './AccountDTO';
 export { default as InvitationDTO } from './InvitationDTO';
 export { default as AccountMembershipDTO } from './AccountMembershipDTO';
 export { default as AddressDTO } from './AddressDTO';
+export { default as AnonymousCarDTO } from './AnonymousCarDTO';
+export { default as AnonymousListingDTO } from './AnonymousListingDTO';
 export { default as AutomatedEmailDTO } from './AutomatedEmailDTO';
 export { default as BaseBookingDTO } from './BaseBookingDTO';
 export { default as BlockerDTO } from './BlockerDTO';
