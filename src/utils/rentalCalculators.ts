@@ -1,34 +1,46 @@
 import { BookingAdditionalFees } from '../domain';
-import { ListingDTO } from '../interface/DTOs';
+import { AnonymousListingDTO } from '../interface/DTOs';
 
 export type TotalTime = { 
   days: number;
   hours: number; 
 };
 
-export function findTotalTime(pickUpDate: Date, returnDate: Date, maxHours: number = 5): TotalTime {
+export type RentalAndHourPrices = {
+  rentalPrice: number;
+  hourlyPrice: number;
+};
+
+/**
+ * Calculates the total time between two dates in days and hours.
+ * Note: use findTotalRentalTime if you want to round up to a whole day when exceeding a certain limit.
+ * @param pickUpDate - The date when the rental starts.
+ * @param returnDate - The date when the rental ends.
+ * @returns An object containing the total days and hours.
+ */
+export function findTotalTime(pickUpDate: Date, returnDate: Date): TotalTime {
   const diff = returnDate.getTime() - pickUpDate.getTime();
   let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  let hours = Math.ceil(diff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
-  if (hours > maxHours) {
-    days += 1;
-    hours = 0;
-  }
+  let hours = Math.ceil(diff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));  
   return { days, hours };
 }
 
-export function findTotalRentalTime(pickUpDate: Date, returnDate: Date, listing: ListingDTO): TotalTime {
+export function findTotalRentalTime(pickUpDate: Date, returnDate: Date, maximumRentalHours: number = 5): TotalTime {
   const totalTime = findTotalTime(pickUpDate, returnDate);
-  if (totalTime.hours > listing.maximumRentalHours) {
+  if (totalTime.hours > maximumRentalHours) {
     totalTime.days += 1;
     totalTime.hours = 0;
   }
   return totalTime;
 }
 
-export function findTotalRentalPrice(totalTime: TotalTime, listing: ListingDTO): number {
-  return totalTime.days * (listing.rentalPrice || listing.car.rentalPrice) + 
-         totalTime.hours * (listing.hourlyPrice || listing.car.hourlyPrice);
+export function findTotalRentalPrice(
+  totalTime: TotalTime, 
+  { 
+    rentalPrice, 
+    hourlyPrice 
+  }: RentalAndHourPrices): number {
+  return totalTime.days * rentalPrice + totalTime.hours * hourlyPrice;
 }
 
 export function findAdditionalFees({
@@ -39,10 +51,10 @@ export function findAdditionalFees({
   returnLocationId: string;
   pickUpDate: Date;
   returnDate: Date;
-}, listingDTO: ListingDTO): BookingAdditionalFees {
+}, listing: AnonymousListingDTO): BookingAdditionalFees {
   return {
-    outOfFreeServiceAreaDelivery: listingDTO.deliveryFees.find((deliveryFee) => deliveryFee.locationId === pickUpLocationId)?.fee || 0,
-    outOfFreeServiceAreaReturn: listingDTO.deliveryFees.find((deliveryFee) => deliveryFee.locationId === returnLocationId)?.fee || 0,
+    outOfFreeServiceAreaDelivery: listing.deliveryFees.find((deliveryFee) => deliveryFee.locationId === pickUpLocationId)?.fee || 0,
+    outOfFreeServiceAreaReturn: listing.deliveryFees.find((deliveryFee) => deliveryFee.locationId === returnLocationId)?.fee || 0,
     //TODO: Consider charging for the out of operating hours
     //In order to do this, shop must specify the operating hours and charges in either listing or shop
     outOfOperatingHoursDelivery: 0,
