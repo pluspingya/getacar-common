@@ -1,6 +1,6 @@
 import ListingStatus from '../../domain/enums/ListingStatus';
 import LocationDTO from './LocationDTO';
-import DeliverFeeDTO from './DeliveryFeeDTO';
+import DeliveryFeeDTO from './DeliveryFeeDTO';
 import AnonymousCarDTO from './AnonymousCarDTO';
 
 type AnonymousListingDTO = {
@@ -9,7 +9,7 @@ type AnonymousListingDTO = {
   car: AnonymousCarDTO;
   description?: string;
   locations: LocationDTO[];
-  deliveryFees: DeliverFeeDTO[];
+  deliveryFees: DeliveryFeeDTO[];
   rentalPrice: number;
   hourlyPrice: number;
   insuranceDeposit: number;

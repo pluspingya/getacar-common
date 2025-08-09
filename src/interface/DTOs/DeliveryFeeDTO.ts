@@ -1,6 +1,6 @@
-type DeliverFeeDTO = {
+type DeliveryFeeDTO = {
   locationId: string;
   fee: number;
 }
 
-export default DeliverFeeDTO;
+export default DeliveryFeeDTO;
