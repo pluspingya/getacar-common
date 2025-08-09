@@ -1,12 +1,12 @@
 import { BookingAction, BookingAdditionalFees, BookingDocumentCompletion, BookingStatus, LanguageCode } from '../../domain';
-import CarDTO from './CarDTO';
+import AnonymousCarDTO from './AnonymousCarDTO';
 
 type BaseBookingDTO = {
   id: string;
   ref: string;
   shopId: string;
   carId: string;
-  car: CarDTO | undefined;
+  car: AnonymousCarDTO | undefined;
   pickUpDate: string;
   pickUpLocationId: string;
   returnDate: string;
