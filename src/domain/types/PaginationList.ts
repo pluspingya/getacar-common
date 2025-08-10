@@ -1,15 +1,8 @@
+import Pagination from './Pagination';
+
 type PaginationList<T> = {
   items: T[];
-  pagination: {
-    next?: {
-      id: string;
-      take: number;
-    };
-    prev?: {
-      id: string;
-      take: number;
-    };
-  };
+  pagination: Pagination;
   total: number;
 }
 

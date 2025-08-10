@@ -1,9 +1,8 @@
-export type OffsetPaginationList<T> = {
+import OffsetPagination from './OffsetPagination';
+
+type OffsetPaginationList<T> = {
   items: T[];
-  pagination: {
-    offset: number;
-    limit: number;
-  };
+  pagination: OffsetPagination;
   total: number;
 };
 
