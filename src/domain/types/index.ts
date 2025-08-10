@@ -13,6 +13,7 @@ export { default as IdName } from './IdName';
 export { default as InvitationTokenData } from './InvitationTokenData';
 export { default as LanguageCode } from './LanguageCode';
 export { default as MinimizedAccountMembership } from './MinimizedAccountMembership';
+export { default as OffsetPaginationList } from './OffsetPaginationList';
 export { default as PaginationList } from './PaginationList';
 export { default as PaginationQuery } from './PaginationQuery';
 export { default as UserTokenData } from './UserTokenData';
