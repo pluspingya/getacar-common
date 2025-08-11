@@ -34,6 +34,14 @@ export function findTotalRentalTime(pickUpDate: Date, returnDate: Date, maximumR
   return totalTime;
 }
 
+export function isDatesDiffLessThanOrEqual(date1: Date, date2: Date, value: TotalTime): boolean {
+  const totalTime = findTotalTime(date1, date2);
+  return totalTime.days < 0
+  || (totalTime.days === 0 && totalTime.hours < 0) 
+  || totalTime.days < value.days 
+  || (totalTime.days === value.days && totalTime.hours <= value.hours);
+}
+
 export function findTotalRentalPrice(
   totalTime: TotalTime, 
   { 
