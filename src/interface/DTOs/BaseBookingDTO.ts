@@ -1,9 +1,10 @@
-import { BookingAction, BookingAdditionalFees, BookingDocumentCompletion, BookingStatus, LanguageCode } from '../../domain';
+import { BookingAction, BookingAdditionalFees, BookingChannelType, BookingDocumentCompletion, BookingFlexibilityLevel, BookingStatus, LanguageCode } from '../../domain';
 import AnonymousCarDTO from './AnonymousCarDTO';
 
 type BaseBookingDTO = {
   id: string;
   ref: string;
+  channelType: BookingChannelType;
   shopId: string;
   carId: string;
   car: AnonymousCarDTO | undefined;
@@ -21,6 +22,7 @@ type BaseBookingDTO = {
   insuranceDeposit: number;
   bookingDeposit: number;
   priceNote: string;
+  flexibilityLevel: BookingFlexibilityLevel;
   status: BookingStatus;
   documentCompletion: BookingDocumentCompletion;
   allowedActions: BookingAction[] | undefined;
