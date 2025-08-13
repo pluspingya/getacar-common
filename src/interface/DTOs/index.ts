@@ -18,6 +18,7 @@ export { default as EmailTemplateDTO } from './EmailTemplateDTO';
 export { default as ImageDTO } from './ImageDTO';
 export { default as ListingDTO } from './ListingDTO';
 export { default as LocationDTO } from './LocationDTO';
+export { default as PaymentDetailDTO } from './PaymentDetailDTO';
 export { default as ShopDTO } from './ShopDTO';
 export { default as ShopMembershipDTO } from './ShopMembershipDTO';
 export { default as UserDTO } from './UserDTO';
