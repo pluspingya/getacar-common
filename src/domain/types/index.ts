@@ -1,4 +1,5 @@
 export { default as AuthorizationContext } from './AuthorizationContext';
+export { default as BankName } from './BankCode';
 export { default as BookingAdditionalFees } from './BookingAdditionalFees';
 export { default as BookingDocumentCompletion } from './BookingDocumentCompletion';
 export { default as CarColor } from './CarColor';
