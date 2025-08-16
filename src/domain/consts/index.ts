@@ -15,3 +15,4 @@ export { default as CarTypesByModel } from './CarTypesByModel';
 export { default as CarYears } from './CarYears';
 export { default as CarYearsByModel } from './CarYearsByModel';
 export { default as LanguageCodes } from './LanguageCodes';
+export { default as Timezones } from './Timezones';

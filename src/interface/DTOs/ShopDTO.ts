@@ -1,4 +1,6 @@
+import Timezone from '../../domain/types/Timezone';
 import AddressDTO from './AddressDTO';
+import DeliveryFeeDTO from './DeliveryFeeDTO';
 
 type ShopDTO = {
   id: string;
@@ -10,6 +12,14 @@ type ShopDTO = {
   website?: string;
   logo?: string;
   description?: string;
+  paymentDetailIds: string[];
+  operatingHoursStartTime: string;
+  operatingHoursEndTime: string;
+  operatingHoursTimezone: Timezone;
+  salesHoursStartTime: string;
+  salesHoursEndTime: string;
+  salesHoursTimezone: Timezone;
+  deliveryFees: DeliveryFeeDTO[];
   createdAt: string;
   updatedAt: string;
 }

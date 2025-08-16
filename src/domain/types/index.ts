@@ -19,4 +19,5 @@ export { default as OffsetPaginationList } from './OffsetPaginationList';
 export { default as Pagination } from './Pagination';
 export { default as PaginationList } from './PaginationList';
 export { default as PaginationQuery } from './PaginationQuery';
+export { default as Timezone } from './Timezone';
 export { default as UserTokenData } from './UserTokenData';
