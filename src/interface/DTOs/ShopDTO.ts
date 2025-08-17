@@ -9,10 +9,10 @@ type ShopDTO = {
   name: string;
   address: AddressDTO;
   phone: string;
-  email?: string;
-  website?: string;
-  logo?: string;
-  description?: string;
+  email: string | null;
+  website: string | null;
+  logo: string | null;
+  description: string | null;
   paymentDetailIds: string[];
   operatingHoursStartTime: string;
   operatingHoursEndTime: string;
@@ -20,7 +20,7 @@ type ShopDTO = {
   salesHoursStartTime: string;
   salesHoursEndTime: string;
   salesHoursTimezone: Timezone;
-  locations?: LocationDTO[];
+  locations: LocationDTO[] | undefined;
   deliveryFees: DeliveryFeeDTO[];
   createdAt: string;
   updatedAt: string;
