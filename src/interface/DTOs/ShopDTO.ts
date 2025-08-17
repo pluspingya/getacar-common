@@ -14,7 +14,6 @@ type ShopDTO = {
   website: string | null;
   logo: string | null;
   description: string | null;
-  paymentDetailIds: string[];
   paymentDetails: PaymentDetailDTO[] | undefined;
   operatingHoursStartTime: string;
   operatingHoursEndTime: string;
