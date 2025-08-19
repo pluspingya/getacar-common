@@ -5,6 +5,7 @@ enum BookingHistoryItemType {
   UPDATE = 'UPDATE',
   ACCEPT = 'ACCEPT',
   REJECT = 'REJECT',
+  CONFIRM = 'CONFIRM',
   DELIVER = 'DELIVER',
   COMPLETE = 'COMPLETE',
   CANCEL = 'CANCEL',
