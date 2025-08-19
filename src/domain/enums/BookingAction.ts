@@ -6,6 +6,7 @@ enum BookingAction {
   SEND_EMAIL = 'SEND_EMAIL',
   ACCEPT = 'ACCEPT',
   REJECT = 'REJECT',
+  CONFIRM = 'CONFIRM',
   CANCEL = 'CANCEL',
 }
 
