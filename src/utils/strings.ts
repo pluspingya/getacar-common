@@ -1,4 +1,5 @@
 import jsonata from 'jsonata';
+import { DateTime } from 'luxon';
 
 export type DataObject = { [key: string]: any };
 
@@ -10,6 +11,10 @@ export function substitute(template: string, data: DataObject): string {
 
     return value !== undefined && value !== null ? String(value) : '';
   });
+}
+
+function isDate(value: any): value is Date {
+  return value instanceof Date && !isNaN(value.getTime());
 }
 
 export async function substituteWithJSONata(template: string, data: DataObject): Promise<string> {
@@ -25,7 +30,14 @@ export async function substituteWithJSONata(template: string, data: DataObject):
       }
       return {
         match,
-        replacement: value !== undefined && value !== null ? String(value) : ''
+        replacement: value !== undefined && value !== null 
+          ? isDate(value) 
+            ? DateTime
+              .fromJSDate(value)
+              .setZone(data.timezone || 'UTC+7')
+              .toFormat(data.dateTimeFormat || 'yyyy-MM-dd HH:mm') 
+            : String(value) 
+          : ''
       };
     })
   );
