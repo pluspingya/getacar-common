@@ -13,8 +13,10 @@ export function substitute(template: string, data: DataObject): string {
   });
 }
 
-function isDate(value: any): value is Date {
-  return value instanceof Date && !isNaN(value.getTime());
+function isISOString(value: string): boolean {
+  if (typeof value !== 'string') return false;
+  const isoRegex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/;
+  return isoRegex.test(value);
 }
 
 export async function substituteWithJSONata(template: string, data: DataObject): Promise<string> {
@@ -23,6 +25,7 @@ export async function substituteWithJSONata(template: string, data: DataObject):
   const replacements = await Promise.all(
     matches.map(async ([match, path]) => {
       let value = undefined;
+      
       try {
         const expression = jsonata(path);
         value = await expression.evaluate(data);
@@ -31,9 +34,9 @@ export async function substituteWithJSONata(template: string, data: DataObject):
       return {
         match,
         replacement: value !== undefined && value !== null 
-          ? isDate(value) 
+          ? isISOString(value) 
             ? DateTime
-              .fromJSDate(value)
+              .fromISO(value)
               .setZone(data.timezone || 'UTC+7')
               .toFormat(data.dateTimeFormat || 'yyyy-MM-dd HH:mm') 
             : String(value) 
