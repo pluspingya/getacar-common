@@ -38,7 +38,7 @@ export async function substituteWithJSONata(template: string, data: DataObject):
             ? DateTime
               .fromISO(value)
               .setZone(data.timezone || 'UTC+7')
-              .toFormat(data.dateTimeFormat || 'yyyy-MM-dd HH:mm') 
+              .toFormat(data.dateTimeFormat || 'dd/MM/yyyy HH:mm') 
             : String(value) 
           : ''
       };
