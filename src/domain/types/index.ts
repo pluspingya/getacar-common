@@ -16,6 +16,7 @@ export { default as LanguageCode } from './LanguageCode';
 export { default as MinimizedAccountMembership } from './MinimizedAccountMembership';
 export { default as OffsetPagination } from './OffsetPagination';
 export { default as OffsetPaginationList } from './OffsetPaginationList';
+export { default as OffsetPaginationQuery } from './OffsetPaginationQuery';
 export { default as Pagination } from './Pagination';
 export { default as PaginationList } from './PaginationList';
 export { default as PaginationQuery } from './PaginationQuery';
