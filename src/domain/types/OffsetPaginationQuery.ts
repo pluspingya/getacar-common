@@ -1,6 +1,6 @@
 type OffsetPaginationQuery = {
   offset?: number;
-  take?: number;
+  limit?: number;
 };
 
 export default OffsetPaginationQuery;
