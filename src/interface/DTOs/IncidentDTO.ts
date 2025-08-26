@@ -12,9 +12,9 @@ type IncidentDTO = {
   finalizerUserId: string | null;
   finalizerUserName: string | null;
   finalizedNote: string | null;
-  finalizedAt: Date | null;
-  createdAt: Date;
-  updatedAt: Date;
+  finalizedAt: string | null;
+  createdAt: string | null;
+  updatedAt: string | null;
 }
 
 export default IncidentDTO;
