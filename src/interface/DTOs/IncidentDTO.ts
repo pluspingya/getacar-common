@@ -6,7 +6,7 @@ type IncidentDTO = {
   entityId: string;
   entityType: string;
   accountId: string;
-  accountName: string;
+  shopId: string;
   detail: string;
   status: IncidentStatus;
   finalizerUserId: string | null;
