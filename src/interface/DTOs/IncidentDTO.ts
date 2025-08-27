@@ -2,6 +2,7 @@ import { IncidentStatus, IncidentType } from '../../domain';
 
 type IncidentDTO = {
   id: string;
+  ref: string;
   type: IncidentType;
   entityId: string;
   entityType: string;
