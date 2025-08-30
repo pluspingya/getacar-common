@@ -1,13 +1,12 @@
 import LocationStatus from '../../domain/enums/LocationStatus';
-import AddressDTO from './AddressDTO';
 
 type LocationDTO = {
   id: string;
   name: string;
-  address?: AddressDTO;
+  province: string;
+  keywords: string;
   latitude?: number;
   longitude?: number;
-  description?: string;
   status: LocationStatus;
   createdAt: string;
   updatedAt: string;
