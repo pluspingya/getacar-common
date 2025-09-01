@@ -19,6 +19,7 @@ export { default as ImageDTO } from './ImageDTO';
 export { default as IncidentDTO } from './IncidentDTO';
 export { default as ListingDTO } from './ListingDTO';
 export { default as LocationDTO } from './LocationDTO';
+export { default as LocationLocalizationDTO } from './LocationLocalizationDTO';
 export { default as PaymentDetailDTO } from './PaymentDetailDTO';
 export { default as ShopDTO } from './ShopDTO';
 export { default as ShopMembershipDTO } from './ShopMembershipDTO';

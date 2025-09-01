@@ -1,4 +1,5 @@
 import LocationStatus from '../../domain/enums/LocationStatus';
+import LocationLocalizationDTO from './LocationLocalizationDTO';
 
 type LocationDTO = {
   id: string;
@@ -8,6 +9,7 @@ type LocationDTO = {
   latitude?: number;
   longitude?: number;
   status: LocationStatus;
+  localization: LocationLocalizationDTO;
   createdAt: string;
   updatedAt: string;
 }
