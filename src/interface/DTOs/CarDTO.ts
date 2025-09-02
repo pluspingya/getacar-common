@@ -20,6 +20,8 @@ type CarDTO = {
   hourlyPrice: number;
   insuranceDeposit: number;
   bookingDeposit: number;
+  minimumRentalDays: number;
+  maximumRentalHours: number;
   images?: ImageDTO[];
   accountId: string;
   createdAt: string;
