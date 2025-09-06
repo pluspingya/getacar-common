@@ -2,9 +2,6 @@ import { CarColor, CarFuel, CarMake, CarModel, CarTransmission, CarType } from '
 import ImageDTO from './ImageDTO';
 
 type AnonymousCarDTO = {
-  id: string;
-  name: string;
-  plateNumber: string;
   type: CarType;
   make: CarMake;
   model: CarModel;
