@@ -86,3 +86,57 @@ export function findPriceDueAtPickup(booking: {
     - booking.bookingDeposit
   );
 }
+
+// Round up to nearest 10
+function roundUpTo10(value: number): number {
+  return Math.ceil(value / 10) * 10;
+}
+
+/**
+ * Calculate sale price from vendor price.
+ */
+export function calcSalePrice(
+  vendor_price: number,
+  commission_rate: number,
+  vat_rate: number
+): number {
+  const commission = vendor_price * commission_rate;
+  const vat = roundUpTo10(commission * vat_rate);
+  return vendor_price * (1 + commission_rate) + vat;
+}
+
+/**
+ * Given sale_price, commission_rate, vat_rate,
+ * find vendor_price by searching the possible value.
+ */
+export function findVendorPrice(
+  sale_price: number,
+  commission_rate: number,
+  vat_rate: number
+): number | null {
+  // Binary search between 1 and sale_price
+  let low = 1;
+  let high = sale_price;
+
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    const guess = calcSalePrice(mid, commission_rate, vat_rate);
+
+    if (guess === sale_price) {
+      return mid; // found exact match
+    } else if (guess < sale_price) {
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+
+  return null; // not found
+}
+
+// // Example usage:
+// const sale = calcSalePrice(800, 0.15, 0.07);
+// console.log("Sale price:", sale); // 930
+
+// const vendor = findVendorPrice(930, 0.15, 0.07);
+// console.log("Vendor price:", vendor); // 800
