@@ -3,6 +3,7 @@ import AddressDTO from './AddressDTO';
 import LocationDTO from './LocationDTO';
 import PaymentDetailDTO from './PaymentDetailDTO';
 import DeliveryFeeDTO from './DeliveryFeeDTO';
+import AfterHoursFeeDTO from './AfterHoursFeeDTO';
 
 type ShopDTO = {
   id: string;
@@ -23,6 +24,7 @@ type ShopDTO = {
   salesHoursTimezone: Timezone;
   locations: LocationDTO[] | undefined;
   deliveryFees: DeliveryFeeDTO[];
+  afterHoursFees: AfterHoursFeeDTO[];
   createdAt: string;
   updatedAt: string;
 }
