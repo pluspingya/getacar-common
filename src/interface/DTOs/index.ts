@@ -5,6 +5,7 @@ export { default as AddressDTO } from './AddressDTO';
 export { default as AfterHoursFeeDTO } from './AfterHoursFeeDTO';
 export { default as AnonymousCarDTO } from './AnonymousCarDTO';
 export { default as AnonymousListingDTO } from './AnonymousListingDTO';
+export { default as AnonymousShopDTO } from './AnonymousShopDTO';
 export { default as AutomatedEmailDTO } from './AutomatedEmailDTO';
 export { default as BaseBookingDTO } from './BaseBookingDTO';
 export { default as BlockerDTO } from './BlockerDTO';
