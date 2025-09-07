@@ -1,5 +1,5 @@
 import { BookingAdditionalFees } from '../domain';
-import { AnonymousListingDTO } from '../interface/DTOs';
+import { AnonymousListingDTO, AnonymousShopDTO } from '../interface/DTOs';
 
 export type TotalTime = { 
   days: number;
@@ -87,16 +87,16 @@ export function findPriceDueAtPickup(booking: {
   );
 }
 
-export function findOutOfOperatingHoursFees(listing: AnonymousListingDTO | null, pickUpDate: Date, returnDate: Date): {
+export function findOutOfOperatingHoursFees(shop: AnonymousShopDTO | undefined, pickUpDate: Date, returnDate: Date): {
   outOfOperatingHoursPickUpFee: number;
   outOfOperatingHoursReturnFee: number;
 }{
-  if (!listing) return { 
+  if (!shop) return { 
     outOfOperatingHoursPickUpFee: 0, 
     outOfOperatingHoursReturnFee: 0 
   };
-  const startTime = new Date(listing.shop.operatingHoursStartTime);
-  const endTime = new Date(listing.shop.operatingHoursEndTime);
+  const startTime = new Date(shop.operatingHoursStartTime);
+  const endTime = new Date(shop.operatingHoursEndTime);
   const operatingHoursStart = new Date(pickUpDate);
   operatingHoursStart.setHours(startTime.getHours());
   operatingHoursStart.setMinutes(startTime.getMinutes());
@@ -110,15 +110,15 @@ export function findOutOfOperatingHoursFees(listing: AnonymousListingDTO | null,
   let { hours: returnBeforeHours } = findTotalTime(returnDate, operatingHoursStart);
   let { hours: returnAfterHours } = findTotalTime(returnDate, operatingHoursEnd);
   const outOfOperatingHoursPickUp = pickUpBeforeHours > 0 
-    ? listing.shop.afterHoursFees.find((fee) => ([pickUpBeforeHours, undefined].includes(fee.offsetHours) && fee.type === 'before')) 
+    ? shop.afterHoursFees.find((fee) => ([pickUpBeforeHours, undefined].includes(fee.offsetHours) && fee.type === 'before')) 
     : pickUpAfterHours > 0 
-      ? listing.shop.afterHoursFees.find((fee) => ([pickUpAfterHours, undefined].includes(fee.offsetHours) && fee.type === 'after')) 
+      ? shop.afterHoursFees.find((fee) => ([pickUpAfterHours, undefined].includes(fee.offsetHours) && fee.type === 'after')) 
       : null 
   ;
   const outOfOperatingHoursReturn = returnBeforeHours > 0 
-    ? listing.shop.afterHoursFees.find((fee) => ([returnBeforeHours, undefined].includes(fee.offsetHours) && fee.type === 'before')) 
+    ? shop.afterHoursFees.find((fee) => ([returnBeforeHours, undefined].includes(fee.offsetHours) && fee.type === 'before')) 
     : returnAfterHours > 0 
-      ? listing.shop.afterHoursFees.find((fee) => ([returnAfterHours, undefined].includes(fee.offsetHours) && fee.type === 'after')) 
+      ? shop.afterHoursFees.find((fee) => ([returnAfterHours, undefined].includes(fee.offsetHours) && fee.type === 'after')) 
       : null;
   return { 
     outOfOperatingHoursPickUpFee: outOfOperatingHoursPickUp?.fee || 0, 
