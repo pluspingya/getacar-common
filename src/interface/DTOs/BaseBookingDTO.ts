@@ -1,5 +1,6 @@
 import { BookingAction, BookingAdditionalFees, BookingChannelType, BookingDocumentCompletion, BookingFlexibilityLevel, BookingStatus, LanguageCode } from '../../domain';
 import AnonymousCarDTO from './AnonymousCarDTO';
+import CarDTO from './CarDTO';
 
 type BaseBookingDTO = {
   id: string;
@@ -7,7 +8,7 @@ type BaseBookingDTO = {
   channelType: BookingChannelType;
   shopId: string;
   carId: string;
-  car: AnonymousCarDTO | undefined;
+  car: AnonymousCarDTO | CarDTO;
   pickUpDate: string;
   pickUpLocationId: string;
   returnDate: string;
