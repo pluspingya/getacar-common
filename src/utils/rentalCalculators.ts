@@ -54,6 +54,8 @@ export function findTotalRentalPrice(
 export function findAdditionalFees({
   pickUpLocationId,
   returnLocationId,
+  pickUpDate,
+  returnDate,
 }: {
   pickUpLocationId: string;
   returnLocationId: string;
@@ -61,12 +63,9 @@ export function findAdditionalFees({
   returnDate: Date;
 }, listing: AnonymousListingDTO): BookingAdditionalFees {
   return {
-    outOfFreeServiceAreaDelivery: listing.deliveryFees.find((deliveryFee) => deliveryFee.locationId === pickUpLocationId)?.fee || 0,
+    outOfFreeServiceAreaPickUp: listing.deliveryFees.find((deliveryFee) => deliveryFee.locationId === pickUpLocationId)?.fee || 0,
     outOfFreeServiceAreaReturn: listing.deliveryFees.find((deliveryFee) => deliveryFee.locationId === returnLocationId)?.fee || 0,
-    //TODO: Consider charging for the out of operating hours
-    //In order to do this, shop must specify the operating hours and charges in either listing or shop
-    outOfOperatingHoursDelivery: 0,
-    outOfOperatingHoursReturn: 0
+    ...findOutOfOperatingHoursFees(listing.shop, pickUpDate, returnDate)
   }
 }
 
@@ -77,23 +76,23 @@ export function findPriceDueAtPickup(booking: {
   additionalFees?: BookingAdditionalFees;
 }): number {
   return (
-    booking.totalPrice 
-    + booking.insuranceDeposit 
-    + (booking.additionalFees?.outOfOperatingHoursDelivery || 0)
+    booking.totalPrice
+    + booking.insuranceDeposit
+    + (booking.additionalFees?.outOfOperatingHoursPickUp || 0)
     + (booking.additionalFees?.outOfOperatingHoursReturn || 0)
-    + (booking.additionalFees?.outOfFreeServiceAreaDelivery || 0)
+    + (booking.additionalFees?.outOfFreeServiceAreaPickUp || 0)
     + (booking.additionalFees?.outOfFreeServiceAreaReturn || 0)
     - booking.bookingDeposit
   );
 }
 
 export function findOutOfOperatingHoursFees(shop: AnonymousShopDTO | undefined, pickUpDate: Date, returnDate: Date): {
-  outOfOperatingHoursPickUpFee: number;
-  outOfOperatingHoursReturnFee: number;
+  outOfOperatingHoursPickUp: number;
+  outOfOperatingHoursReturn: number;
 }{
   if (!shop) return { 
-    outOfOperatingHoursPickUpFee: 0, 
-    outOfOperatingHoursReturnFee: 0 
+    outOfOperatingHoursPickUp: 0, 
+    outOfOperatingHoursReturn: 0 
   };
   const startTime = new Date(shop.operatingHoursStartTime);
   const endTime = new Date(shop.operatingHoursEndTime);
@@ -121,8 +120,8 @@ export function findOutOfOperatingHoursFees(shop: AnonymousShopDTO | undefined, 
       ? shop.afterHoursFees.find((fee) => ([returnAfterHours, undefined].includes(fee.offsetHours) && fee.type === 'after')) 
       : null;
   return { 
-    outOfOperatingHoursPickUpFee: outOfOperatingHoursPickUp?.fee || 0, 
-    outOfOperatingHoursReturnFee: outOfOperatingHoursReturn?.fee || 0
+    outOfOperatingHoursPickUp: outOfOperatingHoursPickUp?.fee || 0, 
+    outOfOperatingHoursReturn: outOfOperatingHoursReturn?.fee || 0
   };
 }
 

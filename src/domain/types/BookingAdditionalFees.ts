@@ -1,7 +1,7 @@
 type BookingAdditionalFees = {
-  outOfOperatingHoursDelivery: number;
+  outOfOperatingHoursPickUp: number;
   outOfOperatingHoursReturn: number;
-  outOfFreeServiceAreaDelivery: number;
+  outOfFreeServiceAreaPickUp: number;
   outOfFreeServiceAreaReturn: number;
 }
 
