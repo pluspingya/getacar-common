@@ -87,6 +87,45 @@ export function findPriceDueAtPickup(booking: {
   );
 }
 
+export function findOutOfOperatingHoursFees(listing: AnonymousListingDTO | null, pickUpDate: Date, returnDate: Date): {
+  outOfOperatingHoursPickUpFee: number;
+  outOfOperatingHoursReturnFee: number;
+}{
+  if (!listing) return { 
+    outOfOperatingHoursPickUpFee: 0, 
+    outOfOperatingHoursReturnFee: 0 
+  };
+  const startTime = new Date(listing.shop.operatingHoursStartTime);
+  const endTime = new Date(listing.shop.operatingHoursEndTime);
+  const operatingHoursStart = new Date(pickUpDate);
+  operatingHoursStart.setHours(startTime.getHours());
+  operatingHoursStart.setMinutes(startTime.getMinutes());
+  operatingHoursStart.setSeconds(startTime.getSeconds());
+  const operatingHoursEnd = new Date(returnDate);
+  operatingHoursEnd.setHours(endTime.getHours());
+  operatingHoursEnd.setMinutes(endTime.getMinutes());
+  operatingHoursEnd.setSeconds(endTime.getSeconds());
+  let { hours: pickUpBeforeHours  } = findTotalTime(pickUpDate, operatingHoursStart);
+  let { hours: pickUpAfterHours } = findTotalTime(returnDate, operatingHoursEnd);
+  let { hours: returnBeforeHours } = findTotalTime(returnDate, operatingHoursStart);
+  let { hours: returnAfterHours } = findTotalTime(returnDate, operatingHoursEnd);
+  const outOfOperatingHoursPickUp = pickUpBeforeHours > 0 
+    ? listing.shop.afterHoursFees.find((fee) => ([pickUpBeforeHours, undefined].includes(fee.offsetHours) && fee.type === 'before')) 
+    : pickUpAfterHours > 0 
+      ? listing.shop.afterHoursFees.find((fee) => ([pickUpAfterHours, undefined].includes(fee.offsetHours) && fee.type === 'after')) 
+      : null 
+  ;
+  const outOfOperatingHoursReturn = returnBeforeHours > 0 
+    ? listing.shop.afterHoursFees.find((fee) => ([returnBeforeHours, undefined].includes(fee.offsetHours) && fee.type === 'before')) 
+    : returnAfterHours > 0 
+      ? listing.shop.afterHoursFees.find((fee) => ([returnAfterHours, undefined].includes(fee.offsetHours) && fee.type === 'after')) 
+      : null;
+  return { 
+    outOfOperatingHoursPickUpFee: outOfOperatingHoursPickUp?.fee || 0, 
+    outOfOperatingHoursReturnFee: outOfOperatingHoursReturn?.fee || 0
+  };
+}
+
 // Round up to nearest 10
 function roundUpTo10(value: number): number {
   return Math.ceil(value / 10) * 10;
