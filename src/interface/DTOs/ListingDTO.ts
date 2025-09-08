@@ -13,6 +13,7 @@ type ListingDTO = {
   description?: string;
   locations: LocationDTO[];
   deliveryFees: DeliveryFeeDTO[];
+  overrideLocation: boolean;
   rentalPrice: number;
   hourlyPrice: number;
   insuranceDeposit: number;
