@@ -1,5 +1,7 @@
 import { Timezone } from '../../domain/types';
 import AfterHoursFeeDTO from './AfterHoursFeeDTO';
+import DeliveryFeeDTO from './DeliveryFeeDTO';
+import LocationDTO from './LocationDTO';
 
 type AnonymousShopDTO = {
   operatingHoursStartTime: string;
@@ -9,6 +11,8 @@ type AnonymousShopDTO = {
   salesHoursEndTime: string;
   salesHoursTimezone: Timezone;
   afterHoursFees: AfterHoursFeeDTO[];
+  locations: LocationDTO[] | undefined;
+  deliveryFees: DeliveryFeeDTO[];
 }
 
 export default AnonymousShopDTO;

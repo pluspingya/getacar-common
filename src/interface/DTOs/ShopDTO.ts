@@ -22,9 +22,9 @@ type ShopDTO = {
   salesHoursStartTime: string;
   salesHoursEndTime: string;
   salesHoursTimezone: Timezone;
+  afterHoursFees: AfterHoursFeeDTO[];
   locations: LocationDTO[] | undefined;
   deliveryFees: DeliveryFeeDTO[];
-  afterHoursFees: AfterHoursFeeDTO[];
   createdAt: string;
   updatedAt: string;
 }
