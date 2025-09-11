@@ -86,6 +86,54 @@ export function findPriceDueAtPickup(booking: {
   );
 }
 
+export function findOutOfOperatingHoursNearest(
+  time: Date,
+  operatingStart: Date,
+  operatingEnd: Date
+): { hours: number; to: 'start' | 'end' | null } {
+  const HOUR = 3600000;
+
+  // Anchor a time-of-day to the date part of `base`
+  const anchor = (base: Date, timeOfDay: Date) => {
+    const d = new Date(base);
+    d.setHours(
+      timeOfDay.getHours(),
+      timeOfDay.getMinutes(),
+      timeOfDay.getSeconds(),
+      timeOfDay.getMilliseconds()
+    );
+    return d;
+  };
+
+  const addDays = (d: Date, days: number) => new Date(d.getTime() + days * 86400000);
+
+  const t = time.getTime();
+  const start = anchor(time, operatingStart);      // today's start
+  const endRaw = anchor(time, operatingEnd);       // today's end (clock only)
+  const overnight = start.getTime() > endRaw.getTime();
+  const end = overnight ? addDays(endRaw, 1) : endRaw;   // normalize overnight to next day
+
+  // Inside the operating window?
+  const inside = overnight
+    ? (t >= start.getTime() || t <= endRaw.getTime())    // e.g., 22:00–06:00
+    : (t >= start.getTime() && t <= end.getTime());      // e.g., 07:00–22:00
+
+  if (inside) return { hours: 0, to: null };
+
+  // Outside: compute distance to the *next* start and the *previous* end, pick the nearer
+  const nextStart = t < start.getTime() ? start.getTime() : addDays(start, 1).getTime();
+  const prevEnd   = t > end.getTime()   ? end.getTime()   : addDays(end, -1).getTime();
+
+  const distToStart = nextStart - t; // >= 0
+  const distToEnd   = t - prevEnd;   // >= 0
+
+  if (distToStart <= distToEnd) {
+    return { hours: Math.ceil(distToStart / HOUR), to: 'start' };
+  } else {
+    return { hours: Math.ceil(distToEnd / HOUR), to: 'end' };
+  }
+}
+
 export function findOutOfOperatingHoursFees(shop: AnonymousShopDTO | undefined, pickUpDate: Date, returnDate: Date): {
   outOfOperatingHoursPickUp: number;
   outOfOperatingHoursReturn: number;
@@ -94,31 +142,37 @@ export function findOutOfOperatingHoursFees(shop: AnonymousShopDTO | undefined, 
     outOfOperatingHoursPickUp: 0, 
     outOfOperatingHoursReturn: 0 
   };
+
   const startTime = new Date(shop.operatingHoursStartTime);
   const endTime = new Date(shop.operatingHoursEndTime);
-  const operatingHoursStart = new Date(pickUpDate);
+
+  let operatingHoursStart = new Date(pickUpDate);
   operatingHoursStart.setHours(startTime.getHours());
   operatingHoursStart.setMinutes(startTime.getMinutes());
   operatingHoursStart.setSeconds(startTime.getSeconds());
-  const operatingHoursEnd = new Date(returnDate);
+  let operatingHoursEnd = new Date(pickUpDate);
   operatingHoursEnd.setHours(endTime.getHours());
   operatingHoursEnd.setMinutes(endTime.getMinutes());
   operatingHoursEnd.setSeconds(endTime.getSeconds());
-  let { hours: pickUpBeforeHours  } = findTotalTime(pickUpDate, operatingHoursStart);
-  let { hours: pickUpAfterHours } = findTotalTime(operatingHoursEnd, pickUpDate );
-  let { hours: returnBeforeHours } = findTotalTime(returnDate, operatingHoursStart);
-  let { hours: returnAfterHours } = findTotalTime(operatingHoursEnd, returnDate);
-  const outOfOperatingHoursPickUp = pickUpBeforeHours > 0 
-    ? shop.afterHoursFees.find((fee) => ([pickUpBeforeHours, undefined].includes(fee.offsetHours) && fee.type === 'before')) 
-    : pickUpAfterHours > 0 
-      ? shop.afterHoursFees.find((fee) => ([pickUpAfterHours, undefined].includes(fee.offsetHours) && fee.type === 'after')) 
-      : undefined 
+  const pickUpOutOfHours = findOutOfOperatingHoursNearest(pickUpDate, operatingHoursStart, operatingHoursEnd);
+
+  operatingHoursStart = new Date(returnDate);
+  operatingHoursStart.setHours(startTime.getHours());
+  operatingHoursStart.setMinutes(startTime.getMinutes());
+  operatingHoursStart.setSeconds(startTime.getSeconds());
+  operatingHoursEnd = new Date(returnDate);
+  operatingHoursEnd.setHours(endTime.getHours());
+  operatingHoursEnd.setMinutes(endTime.getMinutes());
+  operatingHoursEnd.setSeconds(endTime.getSeconds());
+  const returnOutOfHours = findOutOfOperatingHoursNearest(returnDate, operatingHoursStart, operatingHoursEnd);
+
+  const outOfOperatingHoursPickUp = pickUpOutOfHours.hours > 0 
+    ? shop.afterHoursFees.find((fee) => ([pickUpOutOfHours.hours, undefined].includes(fee.offsetHours) && fee.type === (pickUpOutOfHours.to === 'start' ? 'before' : 'after'))) 
+    : undefined 
   ;
-  const outOfOperatingHoursReturn = returnBeforeHours > 0 
-    ? shop.afterHoursFees.find((fee) => ([returnBeforeHours, undefined].includes(fee.offsetHours) && fee.type === 'before')) 
-    : returnAfterHours > 0 
-      ? shop.afterHoursFees.find((fee) => ([returnAfterHours, undefined].includes(fee.offsetHours) && fee.type === 'after')) 
-      : undefined;
+  const outOfOperatingHoursReturn = returnOutOfHours.hours > 0 
+    ? shop.afterHoursFees.find((fee) => ([returnOutOfHours.hours, undefined].includes(fee.offsetHours) && fee.type === (returnOutOfHours.to === 'start' ? 'before' : 'after'))) 
+    : undefined;
   return { 
     outOfOperatingHoursPickUp: outOfOperatingHoursPickUp?.fee || 0, 
     outOfOperatingHoursReturn: outOfOperatingHoursReturn?.fee || 0
