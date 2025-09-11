@@ -62,9 +62,10 @@ export function findAdditionalFees({
   pickUpDate: Date;
   returnDate: Date;
 }, listing: AnonymousListingDTO): BookingAdditionalFees {
+  const deliveryFees = listing.overrideLocation ? listing.deliveryFees : listing.shop.deliveryFees;
   return {
-    outOfFreeServiceAreaPickUp: listing.deliveryFees.find((deliveryFee) => deliveryFee.locationId === pickUpLocationId)?.fee || 0,
-    outOfFreeServiceAreaReturn: listing.deliveryFees.find((deliveryFee) => deliveryFee.locationId === returnLocationId)?.fee || 0,
+    outOfFreeServiceAreaPickUp: (deliveryFees).find((deliveryFee) => deliveryFee.locationId === pickUpLocationId)?.fee || 0,
+    outOfFreeServiceAreaReturn: (deliveryFees).find((deliveryFee) => deliveryFee.locationId === returnLocationId)?.fee || 0,
     ...findOutOfOperatingHoursFees(listing.shop, pickUpDate, returnDate)
   }
 }
