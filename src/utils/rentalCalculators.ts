@@ -105,20 +105,20 @@ export function findOutOfOperatingHoursFees(shop: AnonymousShopDTO | undefined, 
   operatingHoursEnd.setMinutes(endTime.getMinutes());
   operatingHoursEnd.setSeconds(endTime.getSeconds());
   let { hours: pickUpBeforeHours  } = findTotalTime(pickUpDate, operatingHoursStart);
-  let { hours: pickUpAfterHours } = findTotalTime(returnDate, operatingHoursEnd);
+  let { hours: pickUpAfterHours } = findTotalTime(operatingHoursEnd, pickUpDate );
   let { hours: returnBeforeHours } = findTotalTime(returnDate, operatingHoursStart);
-  let { hours: returnAfterHours } = findTotalTime(returnDate, operatingHoursEnd);
+  let { hours: returnAfterHours } = findTotalTime(operatingHoursEnd, returnDate);
   const outOfOperatingHoursPickUp = pickUpBeforeHours > 0 
     ? shop.afterHoursFees.find((fee) => ([pickUpBeforeHours, undefined].includes(fee.offsetHours) && fee.type === 'before')) 
     : pickUpAfterHours > 0 
       ? shop.afterHoursFees.find((fee) => ([pickUpAfterHours, undefined].includes(fee.offsetHours) && fee.type === 'after')) 
-      : null 
+      : undefined 
   ;
   const outOfOperatingHoursReturn = returnBeforeHours > 0 
     ? shop.afterHoursFees.find((fee) => ([returnBeforeHours, undefined].includes(fee.offsetHours) && fee.type === 'before')) 
     : returnAfterHours > 0 
       ? shop.afterHoursFees.find((fee) => ([returnAfterHours, undefined].includes(fee.offsetHours) && fee.type === 'after')) 
-      : null;
+      : undefined;
   return { 
     outOfOperatingHoursPickUp: outOfOperatingHoursPickUp?.fee || 0, 
     outOfOperatingHoursReturn: outOfOperatingHoursReturn?.fee || 0
