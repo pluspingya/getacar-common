@@ -9,6 +9,7 @@ type ShopDTO = {
   id: string;
   accountId: string;  
   name: string;
+  taxId: string | null;
   address: AddressDTO;
   phone: string;
   email: string | null;
