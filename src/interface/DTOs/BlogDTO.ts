@@ -1,12 +1,15 @@
 import BlogStatus from '../../domain/enums/BlogStatus';
+import JsonValue from '../../domain/types/JsonValue';
 
-type BlogDTO = {
+export type BlogDTO = {
   id: string;
   status: BlogStatus;
   title: string;
-  content: string;
+  htmlContent: string | null;
+  jsonContent: JsonValue | null;
   author: string;
   keywords: string[];
+  locale: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string | null;
