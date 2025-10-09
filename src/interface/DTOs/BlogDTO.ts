@@ -1,3 +1,4 @@
+import { LanguageCode } from '../../domain';
 import BlogStatus from '../../domain/enums/BlogStatus';
 import JsonValue from '../../domain/types/JsonValue';
 
@@ -9,7 +10,7 @@ export type BlogDTO = {
   jsonContent: JsonValue | null;
   author: string;
   keywords: string[];
-  locale: string;
+  locale: LanguageCode;
   createdAt: string;
   updatedAt: string;
   publishedAt: string | null;
