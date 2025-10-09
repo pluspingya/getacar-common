@@ -10,6 +10,7 @@ export { default as BaseBookingDTO } from './BaseBookingDTO';
 export { default as BillDTO } from './BillDTO';
 export { default as BillLineDTO } from './BillLineDTO';
 export { default as BlockerDTO } from './BlockerDTO';
+export { default as BlogDTO } from './BlogDTO';
 export { default as BookingDocumentDTO } from './BookingDocumentDTO';
 export { default as BookingDTO } from './BookingDTO';
 export { default as BookingHistoryItemDTO } from './BookingHistoryItemDTO';

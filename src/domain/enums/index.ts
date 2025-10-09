@@ -5,6 +5,7 @@ export { default as AutomatedEmailType } from './AutomatedEmailType';
 export { default as BillLineCategory } from './BillLineCategory';
 export { default as BillProgram } from './BillProgram';
 export { default as BillStatus } from './BillStatus';
+export { default as BlogStatus } from './BlogStatus';
 export { default as BookingAction } from './BookingAction';
 export { default as BookingCancellationType } from './BookingCancellationType';
 export { default as BookingChannelType } from './BookingChannelType';
