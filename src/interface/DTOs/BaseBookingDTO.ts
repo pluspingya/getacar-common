@@ -1,5 +1,6 @@
-import { BookingAction, BookingAdditionalFees, BookingChannelType, BookingDocumentCompletion, BookingFlexibilityLevel, BookingStatus, LanguageCode } from '../../domain';
+import { BookingAction, BookingAdditionalFees, BookingChannelType, BookingDocumentCompletion, BookingFlexibilityLevel, BookingPriceSummary, BookingStatus, LanguageCode } from '../../domain';
 import AnonymousCarDTO from './AnonymousCarDTO';
+import BookingDiscountsDTO from './BookingDiscountsDTO';
 import CarDTO from './CarDTO';
 
 type BaseBookingDTO = {
@@ -20,6 +21,8 @@ type BaseBookingDTO = {
   numberOfHours: number;
   totalPrice: number;
   additionalFees: BookingAdditionalFees;
+  discounts: BookingDiscountsDTO;
+  priceSummary: BookingPriceSummary;
   insuranceDeposit: number;
   bookingDeposit: number;
   priceNote: string;
