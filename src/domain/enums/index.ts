@@ -9,6 +9,7 @@ export { default as BlogStatus } from './BlogStatus';
 export { default as BookingAction } from './BookingAction';
 export { default as BookingCancellationType } from './BookingCancellationType';
 export { default as BookingChannelType } from './BookingChannelType';
+export { default as BookingDiscountType } from './BookingDiscountType';
 export { default as BookingFlexibilityLevel } from './BookingFlexibilityLevel';
 export { default as BookingHistoryItemType } from './BookingHistoryItemType';
 export { default as BookingInternalStatus } from './BookingInternalStatus';

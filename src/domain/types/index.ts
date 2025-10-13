@@ -1,7 +1,9 @@
 export { default as AuthorizationContext } from './AuthorizationContext';
 export { default as BankCode } from './BankCode';
 export { default as BookingAdditionalFees } from './BookingAdditionalFees';
+export { default as BookingDiscountItem } from './BookingDiscountItem';
 export { default as BookingDocumentCompletion } from './BookingDocumentCompletion';
+export { default as BookingPriceSummary } from './BookingPriceSummary';
 export { default as CarColor } from './CarColor';
 export { default as CarFuel } from './CarFuel';
 export { default as CarMake } from './CarMake';
