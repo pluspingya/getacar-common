@@ -7,8 +7,8 @@ type BookingPriceSummary = {
   insuranceDeposit: number;
   bookingDeposit: number;
   totalPrice: number;
+  totalPriceWithDeposit: number;
   payOnPickup: number;
-  actualPaid: number;
 };
 
 export default BookingPriceSummary;
