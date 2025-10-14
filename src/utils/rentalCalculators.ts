@@ -1,4 +1,4 @@
-import { BookingAdditionalFees, BookingDiscountItem } from '../domain';
+import { BookingAdditionalFees } from '../domain';
 import { AnonymousListingDTO, AnonymousShopDTO } from '../interface/DTOs';
 
 export type TotalTime = { 
@@ -73,24 +73,22 @@ export function findAdditionalFees({
 export function findTotalPrice(booking: {
   totalRentalPrice: number;
   additionalFees?: BookingAdditionalFees;
-  discountItems: BookingDiscountItem[];
+  discountAmounts: number[];
 }): number {
   return (
     booking.totalRentalPrice
     + Object.values(booking.additionalFees || {}).reduce((sum, fee) => sum + (fee || 0), 0)
-    - booking.discountItems.reduce((sum, item) => sum + item.amount, 0)
+    - booking.discountAmounts.reduce((sum, amount) => sum + amount, 0)
   )
 }
 
 export function findPriceDueAtPickup(booking: {
-  totalRentalPrice: number;
-  additionalFees?: BookingAdditionalFees;
-  discountItems: BookingDiscountItem[];
+  totalPrice: number;
   insuranceDeposit: number;
   bookingDeposit: number;
 }): number {
   return (
-    findTotalPrice(booking)
+    booking.totalPrice
     + booking.insuranceDeposit
     - booking.bookingDeposit
   );
