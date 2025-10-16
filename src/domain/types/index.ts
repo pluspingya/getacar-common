@@ -23,5 +23,6 @@ export { default as OffsetPaginationQuery } from './OffsetPaginationQuery';
 export { default as Pagination } from './Pagination';
 export { default as PaginationList } from './PaginationList';
 export { default as PaginationQuery } from './PaginationQuery';
+export { default as SortQuery } from './SortQuery';
 export { default as Timezone } from './Timezone';
 export { default as UserTokenData } from './UserTokenData';

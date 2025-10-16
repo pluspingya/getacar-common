@@ -1,6 +1,7 @@
 export { default as AccountDTO } from './AccountDTO';
 export { default as AccountMembershipDTO } from './AccountMembershipDTO';
 export { default as AddressDTO } from './AddressDTO';
+export { default as AdminBookingListItemDTO } from './AdminBookingListItemDTO';
 export { default as AfterHoursFeeDTO } from './AfterHoursFeeDTO';
 export { default as AnonymousCarDTO } from './AnonymousCarDTO';
 export { default as AnonymousListingDTO } from './AnonymousListingDTO';
