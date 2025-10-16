@@ -1,5 +1,5 @@
-type SortQuery = {
-  sortBy?: string;
+type SortQuery<T = string> = {
+  sortBy?: T;
   sortDirection?: 'asc' | 'desc';
 }
 
