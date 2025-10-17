@@ -14,6 +14,7 @@ type AdminBookingListItemDTO = {
   customerName: string;
   pickUpDate: string;
   returnDate: string;
+  createdAt: string;
 }
 
 export default AdminBookingListItemDTO;
