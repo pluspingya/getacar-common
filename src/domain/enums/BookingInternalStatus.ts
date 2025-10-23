@@ -1,6 +1,6 @@
 enum BookingInternalStatus {
   PENDING = 'PENDING',
-  READY = 'READY',
+  UNASSIGNED = 'UNASSIGNED',
   OPEN = 'OPEN',
   CLOSED = 'CLOSED',
 }
